@@ -1,0 +1,58 @@
+.header {
+  background-color: greenyellow;
+}
+
+.header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0px 40px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header nav ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.header nav ul li {
+  padding: 10px;
+  font-weight: 400;
+  font-size: medium;
+}
+
+.header nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.data {
+  background-color: gainsboro;
+  margin: 20px 20px 0px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 500px;
+}
+
+.data .chart {
+  width: 60vw;
+  background-color: #d8d3d3;
+}
+
+.data .table {
+  width: 40vw;
+}
+/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,40 @@
+.header{
+    background-color: greenyellow;
+    nav{
+        display: flex;
+        padding: 0px 40px;
+        justify-content: space-between;
+        
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            li{
+                padding: 10px;
+                font-weight: 400;
+                font-size: medium;
+                a{
+                    text-decoration: none;
+                    color: black;
+                }
+                a:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }   
+}
+
+.data{
+    background-color: gainsboro;
+    margin: 20px 20px 0px 20px;
+    display: flex;
+    height: 500px;
+    .chart{
+        width: 60vw;
+        background-color: rgb(216, 211, 211)
+    }
+    .table{
+        width: 40vw;
+    }
+}

@@ -1,0 +1,29 @@
+.table-data {
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  margin-top: 20px;
+  font-size: medium;
+  border: 1px solid black;
+}
+
+.table-data td {
+  padding: 10px 3px;
+}
+
+.table-headings th {
+  border: 0px solid #0B6FA4;
+}
+
+.column-blue {
+  background-color: #0B6FA4;
+  color: white;
+}
+
+.column-blue td {
+  border: 0px solid #0B6FA4;
+}
+
+.column-white {
+  border: 1px solid white;
+}
+/*# sourceMappingURL=table.css.map */

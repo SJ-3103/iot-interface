@@ -22,7 +22,7 @@ export default function Table() {
 
     return (
         <div className="table">
-            <h2>Table of Different Parameters</h2>
+            <h3>Table of Different Parameters</h3>
             <table className="table-data">
                 
                 <thead>

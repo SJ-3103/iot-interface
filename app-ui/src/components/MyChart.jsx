@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend ,Label} from 'recharts'
-
+import "./chart.css"
 
 export default function MyChart(){
     
@@ -26,10 +26,10 @@ export default function MyChart(){
 
     return (
         <div className="chart">
-            <h2>Line Chart of Different Parameters</h2>
+            <h3>Line Chart of Different Parameters</h3>
 
             <LineChart width={400} height={400} data={chartData}
-                margin={{ top: 30, right: 10, left: 10, bottom: 10 }}>
+                margin={{ top: 20, right: 10, left: 10, bottom: 10 }}>
                 
                 <Line type="monotoneX" dataKey="y" stroke="red" />
                 

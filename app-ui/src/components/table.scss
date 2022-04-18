@@ -1,10 +1,17 @@
+.table{
+    width: 50%;
+    h3{
+        text-align: center;
+    }
+}
+
 .table-data{
-    font-family: "Times New Roman", Times, serif;
     text-align: center;
     margin-top: 20px;
     font-size: medium;
     border: 1px solid black;
-    
+    width: 100%;
+
     // table row data
     td{
         padding: 10px 3px;
@@ -13,6 +20,7 @@
 
 .table-headings{
     th{
+        padding: 10px 3px;
         border: 0px solid #0B6FA4;
     }
 }

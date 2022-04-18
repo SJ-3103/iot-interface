@@ -1,9 +1,9 @@
 .header{
-    background-color: greenyellow;
     nav{
         display: flex;
-        padding: 0px 40px;
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
         
         ul{
             list-style: none;
@@ -11,30 +11,84 @@
             flex-direction: row;
             li{
                 padding: 10px;
-                font-weight: 400;
-                font-size: medium;
+                font-weight: 600;
+                font-size: large;
                 a{
                     text-decoration: none;
-                    color: black;
-                }
-                a:hover{
+                    color: green;
                     text-decoration: underline;
                 }
             }
+
+            div{
+                background-image: url("./res/plant-image.jpg");   
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 100px;
+                height: 100px;
+                margin: 0px 20px;
+            }
         }
-    }   
+    }
+    
+    h2{
+        padding: 10px;
+        text-align: center;
+    }
 }
 
-.data{
-    background-color: gainsboro;
-    margin: 20px 20px 0px 20px;
-    display: flex;
-    height: 500px;
-    .chart{
-        width: 60vw;
-        background-color: rgb(216, 211, 211)
+#mail-box{
+    position: relative;
+    a{
+        span{
+            position: absolute;
+            top: 0;
+            background-color: red;
+            color: white;
+            padding: 2px;
+            border-radius: 100%;
+            font-weight: 500;
+            font-size: small;
+        }
     }
-    .table{
-        width: 40vw;
+    
+    
+
+}
+
+
+.data{
+    margin: 10px 20px;
+    display: flex;
+    height: max-content;
+}
+
+.button-wrapper{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    button{
+        padding: 10px 15px;
+        color: white;
+        font-weight: 700;
+        background-color: blue;
+        border: 1px blue solid;
+        
+        -webkit-box-shadow: 0px 3px 10px -5px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 3px 10px -5px rgba(0,0,0,0.75);
+        box-shadow: 0px 3px 10px -5px rgba(0,0,0,0.75);
+
+        border-radius: 5px 5px 5px 5px;
+        -moz-border-radius: 5px 5px 5px 5px;
+        -webkit-border-radius: 5px 5px 5px 5px;
+
+    }
+    button:hover{
+        cursor: pointer;
+
+        -webkit-box-shadow: 0px 3px 10px -3px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 3px 10px -3px rgba(0,0,0,0.75);
+        box-shadow: 0px 3px 10px -3px rgba(0,0,0,0.75);
     }
 }

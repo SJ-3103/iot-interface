@@ -1,15 +1,14 @@
-.header {
-  background-color: greenyellow;
-}
-
 .header nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0px 40px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
 }
 
 .header nav ul {
@@ -25,34 +24,82 @@
 
 .header nav ul li {
   padding: 10px;
-  font-weight: 400;
-  font-size: medium;
+  font-weight: 600;
+  font-size: large;
 }
 
 .header nav ul li a {
   text-decoration: none;
-  color: black;
-}
-
-.header nav ul li a:hover {
+  color: green;
   text-decoration: underline;
 }
 
+.header nav ul div {
+  background-image: url("./res/plant-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  margin: 0px 20px;
+}
+
+.header h2 {
+  padding: 10px;
+  text-align: center;
+}
+
+#mail-box {
+  position: relative;
+}
+
+#mail-box a span {
+  position: absolute;
+  top: 0;
+  background-color: red;
+  color: white;
+  padding: 2px;
+  border-radius: 100%;
+  font-weight: 500;
+  font-size: small;
+}
+
 .data {
-  background-color: gainsboro;
-  margin: 20px 20px 0px 20px;
+  margin: 10px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 500px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
-.data .chart {
-  width: 60vw;
-  background-color: #d8d3d3;
+.button-wrapper {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.data .table {
-  width: 40vw;
+.button-wrapper button {
+  padding: 10px 15px;
+  color: white;
+  font-weight: 700;
+  background-color: blue;
+  border: 1px blue solid;
+  -webkit-box-shadow: 0px 3px 10px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 10px -5px rgba(0, 0, 0, 0.75);
+  border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+}
+
+.button-wrapper button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.75);
 }
 /*# sourceMappingURL=App.css.map */

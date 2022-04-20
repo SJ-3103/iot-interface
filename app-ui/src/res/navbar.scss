@@ -21,7 +21,7 @@
             }
 
             div{
-                background-image: url("./res/plant-image.jpg");   
+                background-image: url("./plant-image.jpg");   
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -38,6 +38,7 @@
     }
 }
 
+
 #mail-box{
     position: relative;
     a{
@@ -51,44 +52,5 @@
             font-weight: 500;
             font-size: small;
         }
-    }
-    
-    
-
-}
-
-
-.data{
-    margin: 10px 20px;
-    display: flex;
-    height: max-content;
-}
-
-.button-wrapper{
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    button{
-        padding: 10px 15px;
-        color: white;
-        font-weight: 700;
-        background-color: blue;
-        border: 1px blue solid;
-        
-        -webkit-box-shadow: 0px 3px 10px -5px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 3px 10px -5px rgba(0,0,0,0.75);
-        box-shadow: 0px 3px 10px -5px rgba(0,0,0,0.75);
-
-        border-radius: 5px 5px 5px 5px;
-        -moz-border-radius: 5px 5px 5px 5px;
-        -webkit-border-radius: 5px 5px 5px 5px;
-
-    }
-    button:hover{
-        cursor: pointer;
-
-        -webkit-box-shadow: 0px 3px 10px -3px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 3px 10px -3px rgba(0,0,0,0.75);
-        box-shadow: 0px 3px 10px -3px rgba(0,0,0,0.75);
     }
 }

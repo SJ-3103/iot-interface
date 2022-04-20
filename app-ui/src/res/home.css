@@ -1,0 +1,39 @@
+.data {
+  margin: 10px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.button-wrapper {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.button-wrapper button {
+  padding: 10px 15px;
+  color: white;
+  font-weight: 700;
+  background-color: blue;
+  border: 1px blue solid;
+  -webkit-box-shadow: 0px 3px 10px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 10px -5px rgba(0, 0, 0, 0.75);
+  border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+}
+
+.button-wrapper button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.75);
+}
+/*# sourceMappingURL=home.css.map */

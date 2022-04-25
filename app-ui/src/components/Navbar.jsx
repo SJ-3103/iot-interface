@@ -19,7 +19,7 @@ export default function Navbar() {
           </ul>
         </nav>
   
-        <h2>Plant Monitoring System Using Raspberry Pi</h2>
+        <h2>Growth Monitoring of Plants using Raspberry Pi and IoT</h2>
       </header>
     )
 }

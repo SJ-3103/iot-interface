@@ -1,53 +1,108 @@
-import { useEffect, useState } from "react"
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend ,Label} from 'recharts'
-import "./chart.css"
+import { useEffect, useState, useMemo } from "react"
+import "../res/chart.css"
 
-export default function MyChart(){
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js'
+
+import { Line } from 'react-chartjs-2'
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+)
+
+
+const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+      },
+      title: {
+        display: true,
+        text: 'Line Chart',
+      }
+    }
+}
+
+
+export default function MyChart(props) {    
+
+    const [chartData,setChartData] = useState({ 
+        labels: [], 
+        datasets: [
+            {
+                label: "",
+                borderColor: "",
+                backgroundColor: "",   
+                data: []
+            }
+        ]
+    })
     
-    const [ chartData, setChartData ] = useState([])
-
     useEffect(() => {
-        setChartData([
-            {name: 'Page A', x: 400, y: 2400},
-            {name: 'Page B', x: 600, y: 2600},
-            {name: 'Page C', x: 800, y: 2800},
-            {name: 'Page D', x: 1000, y: 3000},
-            {name: 'Page E', x: 1000, y: 3000},
-            {name: 'Page F', x: 1000, y: 3000},
-            {name: 'Page G', x: 1000, y: 3000},
-            {name: 'Page H', x: 1000, y: 3000},
-            {name: 'Page I', x: 1000, y: 3000},
-            {name: 'Page J', x: 1000, y: 3000},
-            {name: 'Page K', x: 1000, y: 3000},
-            {name: 'Page L', x: 1000, y: 3000},
-            {name: 'Page M', x: 1000, y: 3000}
-        ])
+
+        const myfunction = () => {
+
+            setChartData({
+                labels: props.data.map((val) => val["date"])
+            })
+
+            setChartData((prevState) => {
+                return ({
+                    ...prevState,
+                    datasets: [
+                        {
+                            label: 'Temperature',
+                            borderColor: 'rgb(255, 99, 132)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            data: props.data.map((val) => val["temperature"])
+                        },
+                        {
+                            label: 'Humidity',
+                            borderColor: 'rgb(53, 162, 235)',
+                            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                            data: props.data.map((val) => val["humidity"])
+                        },
+                        {
+                            label: 'Light Intensity',
+                            borderColor: 'rgb(53, 162, 100)',
+                            backgroundColor: 'rgba(53, 162, 100, 0.5)',
+                            data: props.data.map((val) => val["lightval"])
+                        },
+                        {  
+                            label: 'Moisture Value',
+                            borderColor: 'rgb(153, 62, 35)',
+                            backgroundColor: 'rgba(153, 62, 35, 0.5)',
+                            data: props.data.map((val) => val["moisture"])
+                        }
+                    ]
+                })
+            })
+        
+        }
+        myfunction()  
     },[])
+
 
     return (
         <div className="chart">
             <h3>Line Chart of Different Parameters</h3>
 
-            <LineChart width={400} height={400} data={chartData}
-                margin={{ top: 20, right: 10, left: 10, bottom: 10 }}>
-                
-                <Line type="monotoneX" dataKey="y" stroke="red" />
-                
-                <CartesianGrid stroke="#ccc" strokeDasharray="5 5"/>
-                
-                <XAxis dataKey="x">
-                    <Label value="X Axis" offset={0} position="insideBottom" />
-                </XAxis>
-                
-                <YAxis dataKey="y">
-                    <Label value="Y Axis" angle={-90} position="insideLeft" />
-                </YAxis>
-                
-                <Tooltip />
-                
-                <Legend verticalAlign="top" height={30}/>
-            </LineChart>
-        
+            <Line options={options} data={chartData}/>
         </div>
     )
 }

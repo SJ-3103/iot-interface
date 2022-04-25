@@ -11,29 +11,31 @@ export default function Home(){
     const [plantData,setPlantData] = useState([])
   
     useEffect(() => {
-      async function fetchData(){
-        const response_data = await fetch("http://localhost:8000/").then(res => res.json())
-        setPlantData(response_data.data)
+      
+      const fetchData = async () => {
+        const response_data = await fetch("http://localhost:8000/home").then(res => res.json())
+        const data = await response_data.data
+        setPlantData(data)
       }
     
       fetchData()
     },[])
   
-    function send_mail(){
-        console.log("Button is clicked")
+    const sendMail = () => {
+      console.log("Button is clicked!")
     }
 
     return(
       <div className="App">
         <Navbar/>
-  
+
         <div className="data">
             <MyChart data={plantData}/>
             <Table data={plantData}/>
         </div>
         
         <div className="button-wrapper">
-          <button onClick={send_mail}>Send Mail</button>
+          <button onClick={sendMail}>Send Mail</button>
         </div>
 
       </div>

@@ -1,24 +1,14 @@
 import { useState , useEffect} from "react"
-import "./table.css"
+import "../res/table.css"
 
 
-export default function Table() {
+export default function Table(props) {
 
     const [tableData,setTableData] = useState([])
-
-    useEffect(() => {
-      
-      setTableData([
-        {"DateTime":"Fri_Nov_19_07-41-17_2021","Temperature":11,"Humidity":64,"LightVal":413,"MoistureVal":88},
-        {"DateTime":"Fri_Nov_19_07-42-48_2021","Temperature":11,"Humidity":64,"LightVal":114,"MoistureVal":86},
-        {"DateTime":"Fri_Nov_19_07-43-19_2021","Temperature":11,"Humidity":63,"LightVal":313,"MoistureVal":86},
-        {"DateTime":"Fri_Nov_19_07-51-10_2021","Temperature":11,"Humidity":62,"LightVal":119,"MoistureVal":84},
-        {"DateTime":"Fri_Nov_19_07-51-41_2021","Temperature":11,"Humidity":64,"LightVal":249,"MoistureVal":82},
-        {"DateTime":"Fri_Nov_19_07-56-11_2021","Temperature":11,"Humidity":64,"LightVal":0,"MoistureVal":79}
-      ])
-      
-    }, [])
     
+    useEffect(() => {
+        setTableData(props.data)   
+    })
 
     return (
         <div className="table">
@@ -27,7 +17,7 @@ export default function Table() {
                 
                 <thead>
                     <tr className="table-headings column-blue">
-                        <th>DateTime</th>
+                        <th>Date</th>
                         <th>Temperature</th>
                         <th>Humidity</th>
                         <th>Light Value</th>
@@ -58,11 +48,11 @@ export default function Table() {
 function ColumnWhite(props){
     return(
         <tr className="column-white">
-            <td>{props.data["DateTime"]}</td>
-            <td>{props.data["Temperature"]}</td>
-            <td>{props.data["Humidity"]}</td>
-            <td>{props.data["LightVal"]}</td>
-            <td>{props.data["MoistureVal"]}</td>
+            <td>{props.data["date"]}</td>
+            <td>{props.data["temperature"]}</td>
+            <td>{props.data["humidity"]}</td>
+            <td>{props.data["lightval"]}</td>
+            <td>{props.data["moisture"]}</td>
         </tr>
     )
 }
@@ -70,11 +60,11 @@ function ColumnWhite(props){
 function ColumnBlue(props){
     return(
         <tr className="column-blue">
-            <td>{props.data["DateTime"]}</td>
-            <td>{props.data["Temperature"]}</td>
-            <td>{props.data["Humidity"]}</td>
-            <td>{props.data["LightVal"]}</td>
-            <td>{props.data["MoistureVal"]}</td>
+            <td>{props.data["date"]}</td>
+            <td>{props.data["temperature"]}</td>
+            <td>{props.data["humidity"]}</td>
+            <td>{props.data["lightval"]}</td>
+            <td>{props.data["moisture"]}</td>
         </tr>
     )
 }

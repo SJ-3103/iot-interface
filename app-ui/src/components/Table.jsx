@@ -4,7 +4,7 @@ import "../res/table.css"
 
 export default function Table(props) {
 
-    const [tableData,setTableData] = useState([])
+    const [tableData,setTableData] = useState({})
     
     useEffect(() => {
         setTableData(props.data)   
@@ -26,15 +26,15 @@ export default function Table(props) {
                 </thead>
 
                 <tbody>
-                    {tableData.map((value,index)=>{
+                    {Object.keys(tableData).map( (val,index)=>{
                         if(index%2 == 0){
                             return (
-                                <ColumnWhite data={value} key={index}/>
+                                <ColumnWhite data={tableData[val]} key={index}/>
                             )
                         }
                         else{
                             return (
-                                <ColumnBlue data={value} key={index}/>
+                                <ColumnBlue data={tableData[val]} key={index}/>
                             )
                         }
                     })}

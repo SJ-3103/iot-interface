@@ -1,12 +1,28 @@
 from typing import Optional
-from fastapi import FastAPI
+
+# fastapi
+from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+
+# exception
+from fastapi import Request, status
+from fastapi.encoders import jsonable_encoder
+from fastapi.exceptions import RequestValidationError
+
+# sqlalchemy
+from sqlalchemy.orm import Session
+
+# iot_app
+from iot_app import models, schemas, crud
+from iot_app.database import SessionLocal, engine
+
+
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:3000",
-]
+origins = ["http://localhost:3000",]
 
 app.add_middleware(
     CORSMiddleware,
@@ -17,90 +33,125 @@ app.add_middleware(
 )
 
 
-@app.get("/home")
-def read_plant_data():
-    data = [
-        {
-            "date": "19/11/21",
-            "humidity": 64,
-            "temperature": 11,
-            "lightval": 413,
-            "moisture": 88
-        },
-        {
-            "date": "20/11/21",
-            "humidity": 64,
-            "temperature": 11,
-            "lightval": 114,
-            "moisture": 86
-        },
-        {
-            "date": "21/11/21",
-            "humidity": 63,
-            "temperature": 11,
-            "lightval": 313,
-            "moisture": 86
-        },
-        {
-            "date": "22/11/21",
-            "humidity": 62,
-            "temperature": 11,
-            "lightval": 119,
-            "moisture": 84
-        },
-        {
-            "date": "23/11/21",
-            "humidity": 64,
-            "temperature": 11,
-            "lightval": 249,
-            "moisture": 82
-        },
-        {
-            "date": "24/11/21",
-            "humidity": 64,
-            "temperature": 11,
-            "lightval": 0,
-            "moisture": 79
-        }
-    ]
+# Dependency
+def get_db():
+    try:
+        db = SessionLocal()
+        yield db
+    finally:
+        db.close()
 
-    return { "data": data }
+# request error exception handling
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exception: RequestValidationError):
+    # print("Error occured "+exception.errors()[0]["msg"]+" : "+exception.errors()[0]["loc"][1])
+    return JSONResponse(
+        status_code = status.HTTP_422_UNPROCESSABLE_ENTITY,
+        content = jsonable_encoder({
+            "detail": exception.errors()
+        }),
+    )
 
 
-@app.get("/emails/")
-def read_emails():
-    data = [
-        {
-            "id":1,
-            "sender": "shbhm89300@gmail.com",
-            "reciever": "jshubham579@gmail.com",
-            "subject": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, impedit atque tempora eligendi temporibus omnis distinctio consequatur qui provident vero voluptate eveniet, exercitationem dolorem ex. Necessitatibus quo aspernatur ex optio!",
-            "context": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, impedit atque tempora eligendi temporibus omnis distinctio consequatur qui provident vero voluptate eveniet, exercitationem dolorem ex. Necessitatibus quo aspernatur ex optio!",
-        },
+# api to 'GET' all plant data
+@app.get("/plant/", response_model=schemas.Plant)
+async def read_plant_data(db: Session = Depends(get_db)):
+    try:
+        obj = crud.get_all_plant_data(db=db)
 
-        {
-            "id":2,
-            "sender": "shbhm89300@gmail.com",
-            "reciever": "jshubham579@gmail.com",
-            "subject": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, impedit atque tempora eligendi temporibus omnis distinctio consequatur qui provident vero voluptate eveniet, exercitationem dolorem ex. Necessitatibus quo aspernatur ex optio!",
-            "context": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, impedit atque tempora eligendi temporibus omnis distinctio consequatur qui provident vero voluptate eveniet, exercitationem dolorem ex. Necessitatibus quo aspernatur ex optio!",
-        },
+        if obj.__len__() == 0:
+            return JSONResponse(
+                status_code = 500,
+                content = {
+                    "msg": "Plant list is Empty!"
+                }
+            )
+        else:
+            plant_data = dict()
+            for i in range(0,obj.__len__()):
+                obj[i].__dict__.pop('_sa_instance_state')
+                plant_data[i] =  obj[i].__dict__
+            
+            return JSONResponse(
+                status_code = 200,
+                content = plant_data
+            )
+    
+    except Exception as error:
+        print(error.args)
+        raise HTTPException(
+            status_code=500,
+            detail="Internal Server ERROR!"
+        )
 
-        {
-            "id":3,
-            "sender": "shbhm89300@gmail.com",
-            "reciever": "jshubham579@gmail.com",
-            "subject": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, impedit atque tempora eligendi temporibus omnis distinctio consequatur qui provident vero voluptate eveniet, exercitationem dolorem ex. Necessitatibus quo aspernatur ex optio!",
-            "context": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, impedit atque tempora eligendi temporibus omnis distinctio consequatur qui provident vero voluptate eveniet, exercitationem dolorem ex. Necessitatibus quo aspernatur ex optio!",
-        },
 
-        {
-            "id":4,
-            "sender": "shbhm89300@gmail.com",
-            "reciever": "jshubham579@gmail.com",
-            "subject": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, impedit atque tempora eligendi temporibus omnis distinctio consequatur qui provident vero voluptate eveniet, exercitationem dolorem ex. Necessitatibus quo aspernatur ex optio!",
-            "context": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, impedit atque tempora eligendi temporibus omnis distinctio consequatur qui provident vero voluptate eveniet, exercitationem dolorem ex. Necessitatibus quo aspernatur ex optio!",
-        }
-    ]
+# api to 'GET' all emails data
+@app.get("/emails/", response_model=schemas.Email)
+async def read_emails(db: Session = Depends(get_db)):
+    try:
+        obj = crud.get_all_email_data(db=db)
 
-    return { "data": data }
+        if obj.__len__() == 0:
+            return JSONResponse(
+                status_code = 500,
+                content = {
+                    "msg": "Email list is Empty!"
+                }
+            )
+        else:
+            email_data = dict()
+            for i in range(0,obj.__len__()):
+                obj[i].__dict__.pop('_sa_instance_state')
+                email_data[i] =  obj[i].__dict__
+            
+            return JSONResponse(
+                status_code = 200,
+                content = email_data
+            )
+    
+    except Exception as error:
+        print(error.args)
+        raise HTTPException(
+            status_code=500,
+            detail="Internal Server ERROR!"
+        )
+
+
+# api to 'POST' email in db
+@app.post("/emails/", response_model=schemas.AddEmail)
+async def create_mail(email: schemas.AddEmail, db: Session = Depends(get_db)):
+    try:
+        obj = crud.create_email(db=db, email=email)
+        if obj.id:
+            return JSONResponse(
+                status_code=200,
+                content={
+                    "id": obj.id
+                }
+            )
+    except Exception as e:
+        print(e)
+        raise HTTPException(
+            status_code=500,
+            detail="Internal Server ERROR!"
+        )
+
+
+# api to 'POST' plant data in db
+@app.post("/plant/", response_model=schemas.AddPlant)
+async def create_plant_data(plant: schemas.AddPlant, db: Session = Depends(get_db)):
+    try:
+        obj = crud.create_plant(db=db, plant=plant)
+        if obj.id:
+            return JSONResponse(
+                status_code=200,
+                content={
+                    "id": obj.id
+                }
+            )
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail="Internal Server ERROR!"
+        )
+

@@ -53,7 +53,7 @@ export default function MyChart(props) {
   useEffect(() => {
     //   removed non required function wrapper to update the state
     setChartData({
-      labels: props.data.map((val) => val["date"]),
+      labels: Object.keys(props.data).map( (val,index)=> props.data[val]["date"]),
     });
 
     setChartData((prevState) => {
@@ -64,25 +64,25 @@ export default function MyChart(props) {
             label: "Temperature",
             borderColor: "rgb(255, 99, 132)",
             backgroundColor: "rgba(255, 99, 132, 0.5)",
-            data: props.data.map((val) => val["temperature"]),
+            data: Object.keys(props.data).map( (val,index)=> props.data[val]["temperatue"])
           },
           {
             label: "Humidity",
             borderColor: "rgb(53, 162, 235)",
             backgroundColor: "rgba(53, 162, 235, 0.5)",
-            data: props.data.map((val) => val["humidity"]),
+            data: Object.keys(props.data).map( (val,index)=> props.data[val]["humidity"])
           },
           {
             label: "Light Intensity",
             borderColor: "rgb(53, 162, 100)",
             backgroundColor: "rgba(53, 162, 100, 0.5)",
-            data: props.data.map((val) => val["lightval"]),
+            data: Object.keys(props.data).map( (val,index)=> props.data[val]["lightval"])
           },
           {
             label: "Moisture Value",
             borderColor: "rgb(153, 62, 35)",
             backgroundColor: "rgba(153, 62, 35, 0.5)",
-            data: props.data.map((val) => val["moisture"]),
+            data: Object.keys(props.data).map( (val,index)=> props.data[val]["moisture"])
           },
         ],
       };

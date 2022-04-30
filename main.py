@@ -1,7 +1,7 @@
 from typing import Optional
 
 # fastapi
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
@@ -16,6 +16,10 @@ from sqlalchemy.orm import Session
 # iot_app
 from iot_app import models, schemas, crud
 from iot_app.database import SessionLocal, engine
+
+# websockets
+from app_websockets.socket import websocket_endpoint_for_ws
+
 
 
 models.Base.metadata.create_all(bind=engine)
@@ -155,3 +159,7 @@ async def create_plant_data(plant: schemas.AddPlant, db: Session = Depends(get_d
             detail="Internal Server ERROR!"
         )
 
+
+@app.websocket("/ws")
+async def handle_ws(websocket: WebSocket):
+    await websocket_endpoint_for_ws(websocket=websocket)

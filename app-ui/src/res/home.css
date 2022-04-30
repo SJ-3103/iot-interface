@@ -24,6 +24,7 @@
   font-weight: 700;
   background-color: blue;
   border: 1px blue solid;
+  margin-right: 10px;
   -webkit-box-shadow: 0px 3px 10px -5px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 3px 10px -5px rgba(0, 0, 0, 0.75);
   border-radius: 5px 5px 5px 5px;
@@ -35,5 +36,10 @@
   cursor: pointer;
   -webkit-box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.75);
+}
+
+#plant-button {
+  background-color: #6e863e;
+  border-color: #6e863e;
 }
 /*# sourceMappingURL=home.css.map */

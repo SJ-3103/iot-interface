@@ -11,6 +11,9 @@ export default function Home() {
 
   const [ws,setWebSocket] = useState({})
 
+  const [isShowChart,setShowCharts] = useState(true)
+  const [isShowTable,setShowTable] = useState(false)
+
   useEffect(() => {
 
     const websocket = () => {
@@ -65,23 +68,51 @@ export default function Home() {
     
   }
 
+  function showCharts(){
+    setShowCharts(true)
+    setShowTable(false)
+  }
+
+  function showTable(){
+    setShowTable(true)
+    setShowCharts(false)
+  }
+
+  function choiceFunction(){
+    if(isShowChart){
+      return(<MyChart data={plantData}/>)
+    }
+    else if(isShowTable){
+      return(<Table data={plantData}/>)
+    }
+  }
+
   return (
     <div className="App">
       <Navbar />
       {/* only load the components when data is retrieved from the api */}
       {Object.keys(plantData).length > 0 ? (
-        <div className="data">
-          <MyChart data={plantData} />
-          <Table data={plantData} />
-        </div>
+        <>
+          <div className="choice-btns">
+            <div>
+              <button onClick={showCharts}>Show Charts</button>
+              <button onClick={showTable}>Show Table</button>
+            </div>
+            <div>
+              <button onClick={sendMail}>Send Mail</button>
+              <button onClick={getPlantData} id="plant-button">Get Plant Data</button>
+            </div>
+          </div>
+          {/* <div className="button-wrapper">
+          </div> */}
+          <div className="data">
+            {choiceFunction()}
+          </div>
+        </>
       ) : (
         <div>Loading...</div>
       )}
 
-      <div className="button-wrapper">
-        <button onClick={sendMail}>Send Mail</button>
-        <button onClick={getPlantData} id="plant-button">Get Plant Data</button>
-      </div>
     </div>
   );
 }

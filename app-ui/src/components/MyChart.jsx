@@ -64,7 +64,7 @@ export default function MyChart(props) {
             label: "Temperature",
             borderColor: "rgb(255, 99, 132)",
             backgroundColor: "rgba(255, 99, 132, 0.5)",
-            data: Object.keys(props.data).map( (val,index)=> props.data[val]["temperatue"])
+            data: Object.keys(props.data).map( (val,index)=> props.data[val]["temperature"])
           },
           {
             label: "Humidity",

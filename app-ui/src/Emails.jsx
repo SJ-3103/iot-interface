@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 import Navbar from "./components/Navbar"
@@ -41,29 +41,36 @@ export default function Emails() {
 }
 
 function EmailBox(props){
+
+    const navigate = useNavigate()
+
+    const toDetails = () => {
+        navigate('/email/details',{state:props.data});
+    }
+
     return(
-        <Link to="/" className="main-wrapper">
+        <a className="main-wrapper" onClick={toDetails}>
             <div className="row-wrapper">
                 <div className='div1'>
-                <p>From:</p>
-                <p>{props.data.sender}</p>
+                    <p><b>From:</b></p>
+                    <p>{props.data.sender}</p>
                 </div>
 
                 <div className='div2'>
-                <p>To:</p>
-                <p>{props.data.reciever}</p>
+                    <p><b>To:</b></p>
+                    <p>{props.data.reciever}</p>
                 </div>
             
                 <div className='div3'>
-                <p>Subject:</p>
-                <p>{props.data.subject}</p>
+                    <p><b>Subject:</b></p>
+                    <p>{props.data.subject}</p>
                 </div>
 
                 <div className='div4'>
-                <p>Context:</p>
-                <p>{props.data.email_text}</p>
+                    <p><b>Email Text:</b></p>
+                    <p>{props.data.email_text}</p>
                 </div>
             </div> 
-        </Link>
+        </a>
     )
 }

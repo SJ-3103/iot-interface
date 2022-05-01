@@ -9,10 +9,11 @@
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    border: .5px solid black;
-    margin: 10px;
+    border: .5px solid whitesmoke;
+    background-color: whitesmoke;
+    margin: 15px 20px;
     p{
-        padding:5px 5px;
+        padding: 10px;
     }
     :hover{
         cursor: pointer;

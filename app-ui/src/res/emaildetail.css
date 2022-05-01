@@ -1,0 +1,17 @@
+.email-details p {
+  background-color: whitesmoke;
+  padding: 20px;
+  margin: 10px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.email-details p b {
+  width: 11%;
+}
+
+.email-details p span {
+  width: 89%;
+}
+/*# sourceMappingURL=emaildetail.css.map */

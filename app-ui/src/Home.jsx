@@ -17,7 +17,7 @@ export default function Home() {
   useEffect(() => {
 
     const websocket = () => {
-      const ws = new WebSocket("ws://localhost:8000/ws")
+      const ws = new WebSocket("ws://"+window.location.host+"/ws")
       
       ws.onmessage = (event) => {
         console.log(event.data)
@@ -35,7 +35,7 @@ export default function Home() {
     }
 
     const fetchData = async () => {
-      const response_data = await fetch("http://localhost:8000/plant/").then((res) => res.json());
+      const response_data = await fetch("/plant/").then((res) => res.json());
       return response_data;
     };
 

@@ -11,7 +11,7 @@ export default function Emails() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response_data = await fetch("http://localhost:8000/emails/").then(res => res.json())
+            const response_data = await fetch("/get/emails/").then(res => res.json())
             return response_data
         }
 

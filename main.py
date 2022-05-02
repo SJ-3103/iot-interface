@@ -26,7 +26,10 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-origins = ["http://localhost:3000",]
+origins = [
+    "http://localhost:3000", 
+    "localhost:3000",
+]
 
 app.add_middleware(
     CORSMiddleware,
@@ -90,7 +93,7 @@ async def read_plant_data(db: Session = Depends(get_db)):
 
 
 # api to 'GET' all emails data
-@app.get("/emails/", response_model=schemas.Email)
+@app.get("/get/emails/", response_model=schemas.Email)
 async def read_emails(db: Session = Depends(get_db)):
     try:
         obj = crud.get_all_email_data(db=db)
@@ -122,7 +125,7 @@ async def read_emails(db: Session = Depends(get_db)):
 
 
 # api to 'POST' email in db
-@app.post("/emails/", response_model=schemas.AddEmail)
+@app.post("/post/emails/", response_model=schemas.AddEmail)
 async def create_mail(email: schemas.AddEmail, db: Session = Depends(get_db)):
     try:
         obj = crud.create_email(db=db, email=email)

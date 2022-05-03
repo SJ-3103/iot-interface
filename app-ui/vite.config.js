@@ -20,7 +20,7 @@ export default defineConfig({
       },
 
       '/ws':{
-        target: 'ws://localhost:8000',
+        target: 'wss://localhost:8000',
         changeOrigin: true,
         secure: false,
         ws: true

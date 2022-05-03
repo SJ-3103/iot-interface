@@ -21,16 +21,10 @@ from iot_app.database import SessionLocal, engine
 from app_websockets.socket import websocket_endpoint_for_ws
 
 
-# static files
-from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
-
 
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-
-app.mount("/assets", StaticFiles(directory="assets/"), name="assets")
 
 origins = [
     "http://localhost:3000", 
@@ -64,15 +58,6 @@ async def validation_exception_handler(request: Request, exception: RequestValid
             "detail": exception.errors()
         }),
     )
-
-
-templates = Jinja2Templates(directory="templates")
-
-
-# for serving react app
-@app.get("/")
-async def serve_react_spa(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
 
 
 # api to 'GET' all plant data

@@ -17,7 +17,7 @@ export default function Home() {
   useEffect(() => {
 
     const websocket = () => {
-      const ws = new WebSocket("wss://"+window.location.host+"/ws")
+      const ws = new WebSocket("ws://"+window.location.host+"/ws")
       
       ws.onmessage = (event) => {
         console.log(event.data)

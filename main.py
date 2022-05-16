@@ -26,11 +26,15 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 
+# iot component function
+from iot_rpi.mail import mysendmail
+
+
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-app.mount("/assets", StaticFiles(directory="assets/"), name="assets")
+# app.mount("/assets", StaticFiles(directory="assets/"), name="assets")
 
 origins = [
     "http://localhost:3000", 
@@ -70,9 +74,9 @@ templates = Jinja2Templates(directory="./")
 
 
 # for serving react app
-@app.get("/")
-async def serve_react_spa(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+# @app.get("/")
+# async def serve_react_spa(request: Request):
+#     return templates.TemplateResponse("index.html", {"request": request})
 
 
 # api to 'GET' all plant data
@@ -141,9 +145,30 @@ async def read_emails(db: Session = Depends(get_db)):
 
 # api to 'POST' email in db
 @app.post("/post/emails/", response_model=schemas.AddEmail)
-async def create_mail(email: schemas.AddEmail, db: Session = Depends(get_db)):
+async def create_mail(db: Session = Depends(get_db)):
     try:
+        data = crud.get_last_plant_data(db=db).__dict__
+
+        data.__delitem__('_sa_instance_state')
+        
+        subject,path_name = mysendmail(
+            date=data['date'],
+            temperature=data['temperature'],
+            humidity=data['humidity'],
+            lightval=data['lightval'],
+            moisture=data['moisture']
+        )
+
+        email = {
+            "sender": "shbhm89300@gmail.com",
+            "reciever": "jshubham@gmail.com",
+            "subject": "New Email",
+            "email_text": subject,
+            "email_attachment": path_name 
+        }
+
         obj = crud.create_email(db=db, email=email)
+        
         if obj.id:
             return JSONResponse(
                 status_code=200,

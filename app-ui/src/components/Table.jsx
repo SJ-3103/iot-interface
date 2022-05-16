@@ -37,7 +37,7 @@ export default function Table(props) {
                                 <ColumnBlue data={tableData[val]} key={index}/>
                             )
                         }
-                    })}
+                    }).reverse()}
                 </tbody>
 
             </table>

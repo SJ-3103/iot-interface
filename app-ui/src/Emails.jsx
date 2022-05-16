@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 import Navbar from "./components/Navbar"
@@ -31,7 +31,7 @@ export default function Emails() {
             Object.keys(emails).length > 0 ? (
                 Object.keys(emails).map( (val,index)=>{
                     return <EmailBox data={emails[val]} key={index}/>
-                } )
+                } ).reverse()
             ) : (
                 <div>Loading...</div>
             )

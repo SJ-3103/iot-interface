@@ -21,9 +21,13 @@ def get_all_email_data(db: Session):
 
 
 # create email table row
-def create_email(db: Session, email: schemas.AddEmail):
-    db_email = models.EmailData(**email.dict())
+def create_email(db: Session,email):
+    db_email = models.EmailData(**email)
     db.add(db_email)
     db.commit()
     db.refresh(db_email)
     return db_email
+
+
+def get_last_plant_data(db: Session):
+    return db.query(models.PlantData).order_by(models.PlantData.id.desc()).first()

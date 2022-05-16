@@ -25,6 +25,12 @@ export default defineConfig({
         secure: false,
         ws: true
       },
+
+      '/post/emails':{
+        target: 'http://localhost:8000/',
+        changeOrigin: true,
+        secure: true
+      }
     }
   },
   build: {

@@ -1,40 +1,44 @@
 .header{
+    a{
+        text-decoration: none;
+        color: black;
+    }
     nav{
+        padding: 10px 0px;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100px;
-        
+        justify-content: space-between;
         ul{
             list-style: none;
             display: flex;
+            align-items: center;
             flex-direction: row;
             li{
-                padding: 10px;
+                padding: 10px 25px;
                 font-weight: 600;
                 font-size: large;
                 a{
                     text-decoration: none;
                     color: green;
+                }
+                a:hover{
                     text-decoration: underline;
                 }
             }
 
-            div{
+            #nav-image{
                 background-image: url("./plant-image.jpg");   
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
-                width: 100px;
-                height: 100px;
+                width: 70px;
+                height: 70px;
                 margin: 0px 20px;
             }
+
+            h3{
+                font-size: larger;
+            }
         }
-    }
-    
-    h2{
-        padding: 10px;
-        text-align: center;
     }
 }
 

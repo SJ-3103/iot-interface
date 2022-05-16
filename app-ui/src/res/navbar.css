@@ -1,14 +1,16 @@
+.header a {
+  text-decoration: none;
+  color: black;
+}
+
 .header nav {
+  padding: 10px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .header nav ul {
@@ -16,6 +18,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -23,7 +28,7 @@
 }
 
 .header nav ul li {
-  padding: 10px;
+  padding: 10px 25px;
   font-weight: 600;
   font-size: large;
 }
@@ -31,22 +36,24 @@
 .header nav ul li a {
   text-decoration: none;
   color: green;
+}
+
+.header nav ul li a:hover {
   text-decoration: underline;
 }
 
-.header nav ul div {
+.header nav ul #nav-image {
   background-image: url("./plant-image.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   margin: 0px 20px;
 }
 
-.header h2 {
-  padding: 10px;
-  text-align: center;
+.header nav ul h3 {
+  font-size: larger;
 }
 
 #mail-box {

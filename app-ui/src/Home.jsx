@@ -4,35 +4,18 @@ import "./res/home.css";
 import Navbar from "./components/Navbar";
 import MyChart from "./components/MyChart";
 import Table from "./components/Table";
+import LiveChart from "./components/LiveChart";
 
 
 export default function Home() {
   const [plantData, setPlantData] = useState({});
 
-  const [ws,setWebSocket] = useState({})
-
   const [isShowChart,setShowCharts] = useState(true)
   const [isShowTable,setShowTable] = useState(false)
 
-  useEffect(() => {
+  const [isNewChart,setNewChart] = useState(false)
 
-    const websocket = () => {
-      const ws = new WebSocket("wss://"+window.location.host+"/ws")
-      
-      ws.onmessage = (event) => {
-        console.log(event.data)
-      }
-  
-      ws.onclose = (event) => {
-        console.log("socket is closed from backend")
-      }
-  
-      ws.onerror = (event) => {
-        console.log("error in socket")
-      }
-      
-      setWebSocket(ws)
-    }
+  useEffect(() => {
 
     const fetchData = async () => {
       const response_data = await fetch("/plant/").then((res) => res.json());
@@ -49,41 +32,55 @@ export default function Home() {
         console.log(error);
       });
 
-    websocket()
-
   }, []);
 
-  const sendMail = () => {
-    console.log("Button is clicked!");
+  // feature to send emails
+  const sendMail = async() => {
+    const last_field = plantData[Object.keys(plantData).length-1]
+    const date = last_field.date
+    const temperature = last_field.temperature
+    const humidity = last_field.humidity
+    const moisture = last_field.moisture
+    const lightval = last_field.lightval
+
+    let value = confirm("Do you wish to send e-mail to admin?\nDate & Time: "+date+"\nTemperature: "+temperature+"C\nHumidity: "+humidity+"\nMoisture: "+moisture+"\nLight Intensity: "+lightval)
+    
+    if(value){
+      const res = await fetch("/post/emails/", { method:'POST' }).then((res)=>res.json())
+      console.log(res)
+      alert("E-mail has been sent to the admin gmail account.")
+    }
   };
 
-  const getPlantData = () =>{
-    console.log("Getting plant data...")
-    
-    // console.log(ws)
-
-    ws.send(JSON.stringify({
-      "get_data":true
-    }))
-    
+  function showRealTimeData(){
+    setNewChart(true)
+    setShowCharts(false)
+    setShowTable(false)
   }
 
   function showCharts(){
     setShowCharts(true)
     setShowTable(false)
+    setNewChart(false)
   }
 
   function showTable(){
     setShowTable(true)
     setShowCharts(false)
+    setNewChart(false)
   }
 
   function choiceFunction(){
-    if(isShowChart){
-      return(<MyChart data={plantData}/>)
+    if (isNewChart == false){
+      if(isShowChart){
+        return(<MyChart data={plantData}/>)
+      }
+      else if(isShowTable){
+        return(<Table data={plantData}/>)
+      }
     }
-    else if(isShowTable){
-      return(<Table data={plantData}/>)
+    else{
+      return(<LiveChart/>)  
     }
   }
 
@@ -100,11 +97,9 @@ export default function Home() {
             </div>
             <div>
               <button onClick={sendMail}>Send Mail</button>
-              <button onClick={getPlantData} id="plant-button">Get Plant Data</button>
+              <button onClick={showRealTimeData} id="plant-button">Real Time Data</button>
             </div>
           </div>
-          {/* <div className="button-wrapper">
-          </div> */}
           <div className="data">
             {choiceFunction()}
           </div>

@@ -23,16 +23,17 @@ Run the following commands:
     ```
     python3 -m venv venv
     ```    
-    Then install the dependencies:
-    ```
-    pip install -r requirements.txt
-    ```
-
-    Now start the terminal in virtual environment mode:
+    Then start the terminal in virtual environment mode:
 
     ```
     source venv/bin/activate
+    ``` 
+    
+    Now install the dependencies:
     ```
+    pip install -r requirements.txt
+    ```
+    
     Then run the below command:
     ```
     uvicorn main:app

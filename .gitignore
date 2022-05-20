@@ -2,6 +2,7 @@ __pycache__
 .vscode
 venv
 .env
-IoTSetup1
 assets
 index.html
+.env
+text.txt

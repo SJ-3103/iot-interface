@@ -1,0 +1,90 @@
+.analysis-block {
+  text-align: justify;
+  font-size: large;
+  line-height: 150%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding-bottom: 40px;
+}
+
+.analysis-block h2, .analysis-block h3, .analysis-block p {
+  padding: 20px 30px 0px 30px;
+}
+
+.main-image {
+  background-image: url("../res/isaac-smith-6EnTPvPPL6I-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 83vh;
+  position: relative;
+  margin: 10px 10px 30px 10px;
+}
+
+.main-image p {
+  background-color: rgba(255, 255, 255, 0.863);
+  position: absolute;
+  top: 35%;
+  left: 18%;
+  color: #2314ac;
+  font-size: 60px;
+  font-weight: 500;
+  padding: 0px 15px 20px 15px;
+}
+
+.real-life {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.real-life div {
+  width: 50%;
+}
+
+#real-life-image {
+  background-image: url("../res/r1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 30vh;
+  margin: 40px;
+}
+
+#working-image {
+  background-image: url("../res/r2.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40vh;
+}
+
+#bagging {
+  background-image: url("../res/r3.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40vh;
+  margin: 40px;
+}
+
+.steps {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.steps div {
+  width: 50%;
+}
+
+#steps {
+  background-image: url("../res/r4.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40vh;
+  margin: 40px;
+}
+/*# sourceMappingURL=analysis.css.map */

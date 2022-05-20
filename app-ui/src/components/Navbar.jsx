@@ -18,7 +18,7 @@ export default function Navbar(props) {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
-            <li><Link to="/images">Images</Link></li>
+            <li><Link to="/analysis">Analysis</Link></li>
             <li id="mail-box">
               <Link to="/emails">E-Mails 
                 {number ? (<span>{number}</span>) : (console.log("Nothing")) }

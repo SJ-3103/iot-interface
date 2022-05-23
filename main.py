@@ -34,7 +34,7 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-# app.mount("/assets", StaticFiles(directory="assets/"), name="assets")
+app.mount("/assets", StaticFiles(directory="assets/"), name="assets")
 
 origins = [
     "http://localhost:3000", 
@@ -74,9 +74,9 @@ templates = Jinja2Templates(directory="./")
 
 
 # for serving react app
-# @app.get("/")
-# async def serve_react_spa(request: Request):
-#     return templates.TemplateResponse("index.html", {"request": request})
+@app.get("/")
+async def serve_react_spa(request: Request):
+	return templates.TemplateResponse("index.html", {"request": request})
 
 
 # api to 'GET' all plant data

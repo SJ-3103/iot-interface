@@ -43,11 +43,11 @@ export default function LiveChart() {
 
   const [realTimeData, setRealTimeData] = useState({
     0:{
-      "date":"7/7/33",
-      "humidity":"90",
-      "temperature":"98",
-      "lightval":"45",
-      "moisture":"89"
+      "date":"20/5/22",
+      "humidity":"0",
+      "temperature":"0",
+      "lightval":"0",
+      "moisture":"0"
     }
   })
 
@@ -72,13 +72,15 @@ export default function LiveChart() {
       
       ws.onmessage = (event) => {
         console.log(event.data)
-        
+
+	let my_data = JSON.parse(event.data)
+
         setRealTimeData((prevState) => { return {...prevState,1:{
-          "date":"9/23/34",
-          "temperature":"91",
-          "humidity":"12",
-          "lightval":"56",
-          "moisture":"34"
+          "date":"20/05/22",
+          "temperature":my_data["temperature"],
+          "humidity":my_data["moisture"],
+          "lightval":my_data["lightvalue"],
+          "moisture":my_data["soil_moisture_val"]
         }}})
       
       }

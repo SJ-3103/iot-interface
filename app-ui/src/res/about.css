@@ -1,9 +1,5 @@
 .about {
   text-align: justify;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  padding-bottom: 40px;
   font-size: large;
   line-height: 150%;
 }
@@ -71,6 +67,7 @@
 
 .block3 {
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .block3 div {

@@ -1,3 +1,11 @@
+.emails-details-wrapper h3 {
+  padding: 20px;
+}
+
+.emaildata-wrapper {
+  height: 60vh;
+}
+
 .emaildata-wrapper p {
   background-color: whitesmoke;
   padding: 20px;

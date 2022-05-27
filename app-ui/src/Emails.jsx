@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 
 import Navbar from "./components/Navbar"
 import SideBar from "./components/SideBar"
+import Footer from "./components/Footer"
 
 import "./res/email.css"
 import "./res/helper.css"
@@ -28,27 +29,29 @@ export default function Emails() {
     },[])
 
     return (
-        <>
+        <div>
         <Navbar/>
 
         <div className="main-wrapper">
-            
             <SideBar/>
             
             <div className="main emails-main">
-                {
-                    Object.keys(emails).length > 0 ? (
-                        Object.keys(emails).map( (val,index)=>{
-                            return <EmailBox data={emails[val]} key={index}/>
-                        } ).reverse()
-                    ) : (
-                        <div>Loading...</div>
-                    )
-                }
+                <h3>List of Emails</h3>
+                <div>
+                    {
+                        Object.keys(emails).length > 0 ? (
+                            Object.keys(emails).map( (val,index)=>{
+                                return <EmailBox data={emails[val]} key={index}/>
+                            } ).reverse()
+                        ) : (
+                            <div>Loading...</div>
+                        )
+                    }
+                </div>
+                <Footer/>
             </div>
-        
         </div>
-        </>
+        </div>
     )
 }
 

@@ -1,12 +1,13 @@
 import Navbar from "./components/Navbar"
 import SideBar from "./components/SideBar"
+import Footer from "./components/Footer"
 
 import './res/analysis.css'
 import "./res/helper.css"
 
 export default function Analysis() {
     return(
-      <>
+      <div className="App">
         <Navbar/>
         <div className="main-wrapper">
          
@@ -92,9 +93,11 @@ export default function Analysis() {
               <p>3. Decision Tree technique faces the problem of over-fitting while in Random Forest it can be tackled by the majority random method.</p>
             </div>
 
+            <Footer/>
+
           </div>
 
         </div>
-      </>
+      </div>
     )
 }

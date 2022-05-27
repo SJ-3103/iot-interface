@@ -1,11 +1,13 @@
 import Navbar from "./components/Navbar"
 import SideBar from "./components/SideBar"
+import Footer from "./components/Footer"
+
 import "./res/about.css"
 import "./res/helper.css"
 
 export default function About(){
     return(
-      <>
+      <div className="App">
         <Navbar/>
 
         <div className="main-wrapper">
@@ -70,9 +72,10 @@ export default function About(){
               </p>
               <div></div>
             </div>
+            <Footer/>
           </div>
 
         </div>
-      </>
+      </div>
     )
 }

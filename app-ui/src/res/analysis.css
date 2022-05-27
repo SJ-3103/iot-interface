@@ -2,10 +2,6 @@
   font-size: large;
   line-height: 150%;
   text-align: justify;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  padding-bottom: 40px;
 }
 
 .analysis h2, .analysis h3, .analysis p {
@@ -86,5 +82,9 @@
   background-repeat: no-repeat;
   height: 40vh;
   margin: 40px;
+}
+
+.reasons {
+  margin-bottom: 30px;
 }
 /*# sourceMappingURL=analysis.css.map */

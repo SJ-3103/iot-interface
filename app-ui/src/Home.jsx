@@ -2,15 +2,16 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-import "./res/home.css";
-import "./res/helper.css"
 
 import Navbar from "./components/Navbar";
 import MyChart from "./components/MyChart";
 import Table from "./components/Table";
 import LiveChart from "./components/LiveChart";
 import SideBar from "./components/SideBar";
+import Footer from "./components/Footer";
 
+import "./res/home.css";
+import "./res/helper.css"
 
 export default function Home() {
   const [plantData, setPlantData] = useState({});
@@ -126,6 +127,8 @@ export default function Home() {
               <div className="data">
                 {choiceFunction()}
               </div>
+              
+              <Footer/>
 
             </div>
           ) : (

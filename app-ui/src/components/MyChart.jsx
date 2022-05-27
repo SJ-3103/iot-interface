@@ -192,7 +192,6 @@ export default function MyChart(props) {
   });
 
   useEffect(() => {
-    //   removed non required function wrapper to update the state
     setTempData({
       labels: Object.keys(props.data).map( (val,index)=> props.data[val]["date"]),
     });

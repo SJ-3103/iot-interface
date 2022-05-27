@@ -4,7 +4,7 @@
 }
 
 .header nav {
-  padding: 10px 0px;
+  padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,53 +21,29 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.header nav ul li {
-  padding: 10px 25px;
-  font-weight: 600;
-  font-size: large;
-}
-
-.header nav ul li a {
-  text-decoration: none;
-  color: green;
-}
-
-.header nav ul li a:hover {
-  text-decoration: underline;
-}
-
-.header nav ul #nav-image {
-  background-image: url("./plant-image.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 70px;
-  height: 70px;
-  margin: 0px 20px;
+  height: inherit;
 }
 
 .header nav ul h3 {
+  margin: 0px 10px;
   font-size: larger;
 }
 
-#mail-box {
-  position: relative;
+#nav-image {
+  background-image: url("./images/plant-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 92px;
+  height: 92px;
 }
 
-#mail-box a span {
-  position: absolute;
-  top: 0;
-  background-color: red;
-  color: white;
-  padding: 2px;
-  border-radius: 100%;
-  font-weight: 500;
-  font-size: small;
+#dcrust-logo {
+  background-image: url("./images/dcrustlogo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 450px;
+  height: 92px;
 }
 /*# sourceMappingURL=navbar.css.map */

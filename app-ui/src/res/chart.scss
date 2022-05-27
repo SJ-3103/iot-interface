@@ -1,16 +1,32 @@
-.chart{
-    width: 70%;
+.myclass{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    div{
+        width: 60vw;
+        height: 70vh;
+        margin: 6px;
+        display: flex;
+        align-items: center;
+    }
 }
+
 .realtime{
     display: flex;
     div{
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
+        width: 20vw;
         button{
-            margin-left: 80px;
             width: 100px;
         }
     }
-    width: 76%;
+    width: 65vw;
+}
+
+.getdata-btn, .livechart-analysis{
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

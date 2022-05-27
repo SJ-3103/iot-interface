@@ -1,0 +1,10 @@
+.main-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main {
+  width: 90vw;
+}
+/*# sourceMappingURL=helper.css.map */

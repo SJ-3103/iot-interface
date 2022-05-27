@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+
 import "./res/home.css";
+import "./res/helper.css"
 
 import Navbar from "./components/Navbar";
 import MyChart from "./components/MyChart";
 import Table from "./components/Table";
 import LiveChart from "./components/LiveChart";
+import SideBar from "./components/SideBar";
 
 
 export default function Home() {
@@ -14,6 +19,8 @@ export default function Home() {
   const [isShowTable,setShowTable] = useState(false)
 
   const [isNewChart,setNewChart] = useState(false)
+
+  const [showMenu,setShowMenu] = useState(false)
 
   useEffect(() => {
 
@@ -84,30 +91,49 @@ export default function Home() {
     }
   }
 
+
+  function handleMenu(){
+    if(!showMenu){
+      setShowMenu(true)
+    }else{
+      setShowMenu(false)
+    }
+  }
+
   return (
     <div className="App">
       <Navbar />
-      {/* only load the components when data is retrieved from the api */}
-      {Object.keys(plantData).length > 0 ? (
-        <>
-          <div className="choice-btns">
+      
+      <div className="main-wrapper">
+        <SideBar/>
+        
+        <div className="main">
+          {Object.keys(plantData).length > 0 ? (
             <div>
-              <button onClick={showCharts}>Show Charts</button>
-              <button onClick={showTable}>Show Table</button>
-            </div>
-            <div>
-              <button onClick={sendMail}>Send Mail</button>
-              <button onClick={showRealTimeData} id="plant-button">Real Time Data</button>
-            </div>
-          </div>
-          <div className="data">
-            {choiceFunction()}
-          </div>
-        </>
-      ) : (
-        <div>Loading...</div>
-      )}
 
+              <div className="dropdown-content">
+                {(showMenu)? (
+                  <div className="dropdown-menu">
+                    <button onClick={showCharts}>Show Charts</button>
+                    <button onClick={showTable}>Show Table</button>
+                    <button onClick={showRealTimeData} id="plant-button">Real Time Data</button>
+                    <button onClick={sendMail}>Send Email</button>
+                  </div>
+                ) : (<></>)}
+                {(showMenu) ? (<FontAwesomeIcon icon={faXmark} onClick={handleMenu}/>) : (<FontAwesomeIcon icon={faBars} onClick={handleMenu}/>)}
+              </div>
+
+              <div className="data">
+                {choiceFunction()}
+              </div>
+
+            </div>
+          ) : (
+            <div>Loading...</div>
+          )}
+        </div>
+
+      </div>
     </div>
   );
 }

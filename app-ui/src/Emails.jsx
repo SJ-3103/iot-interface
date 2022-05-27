@@ -2,7 +2,10 @@ import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 import Navbar from "./components/Navbar"
+import SideBar from "./components/SideBar"
+
 import "./res/email.css"
+import "./res/helper.css"
 
 
 export default function Emails() {
@@ -27,15 +30,24 @@ export default function Emails() {
     return (
         <>
         <Navbar/>
-        {
-            Object.keys(emails).length > 0 ? (
-                Object.keys(emails).map( (val,index)=>{
-                    return <EmailBox data={emails[val]} key={index}/>
-                } ).reverse()
-            ) : (
-                <div>Loading...</div>
-            )
-        }
+
+        <div className="main-wrapper">
+            
+            <SideBar/>
+            
+            <div className="main emails-main">
+                {
+                    Object.keys(emails).length > 0 ? (
+                        Object.keys(emails).map( (val,index)=>{
+                            return <EmailBox data={emails[val]} key={index}/>
+                        } ).reverse()
+                    ) : (
+                        <div>Loading...</div>
+                    )
+                }
+            </div>
+        
+        </div>
         </>
     )
 }
@@ -49,7 +61,7 @@ function EmailBox(props){
     }
 
     return(
-        <a className="main-wrapper" onClick={toDetails}>
+        <a className="email-box-wrapper" onClick={toDetails}>
             <div className="row-wrapper">
                 <div className='div1'>
                     <p><b>From:</b></p>

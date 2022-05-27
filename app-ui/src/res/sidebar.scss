@@ -1,0 +1,49 @@
+.sidebar{
+    background-color: rgb(96, 102, 96);
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    height: auto;
+    overflow: hidden;
+
+    ul{
+        list-style: none;
+        text-align: center;
+        li{
+            a{
+                text-decoration: none;
+                color: white;
+                display: flex;
+                align-items: center;
+
+                svg{
+                    padding: 6px;
+                    margin: 10px;
+                }
+            }
+            a:hover{
+                text-decoration: underline;
+                background-color: gray;
+            }
+        }
+    }
+}
+
+
+#mail-box{
+    position: relative;
+    a{
+        span{
+            position: absolute;
+            top: 0;
+            background-color: red;
+            color: white;
+            padding: 2px;
+            border-radius: 100%;
+            font-weight: 500;
+            font-size: small;
+        }
+    }
+}

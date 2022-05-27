@@ -1,32 +1,36 @@
 import Navbar from "./components/Navbar"
+import SideBar from "./components/SideBar"
 import "./res/about.css"
+import "./res/helper.css"
 
 export default function About(){
     return(
       <>
         <Navbar/>
 
-        <div className="about">
-          
-          <div className="main-block">
-            <p>Monitor Plant Growth In A Smart Way</p>
-          </div>
+        <div className="main-wrapper">
+          <SideBar/>
 
-          <div className="block1">
-            <p>Monitoring plant health is very important for their fast growth. In this busy world, people 
-              usually forget to take proper care of their plants which leads to bad growth and health of 
-              their plants. For ensuring complete development of plants, it is necessary to develop proper 
-              surrounding conditions in which plants grow. The automatic plant monitoring system has 
-              recently attracted tremendous interest due to the potential application in emerging 
-              technology. More importantly, this technique is used to enhance the performance of 
-              existing techniques or to develop and design new techniques for the growth of plants. The 
-              plant monitoring system is helpful for watering the plants and to monitor few factors which 
-              are necessary for the growth of plants.
-            </p>
-            <div></div>
-          </div>
+          <div className="main about">
+            <div className="main-block">
+              <p>Monitor Plant Growth In A Smart Way</p>
+            </div>
 
-          <div className="block2">
+            <div className="block-class block1">
+              <p>Monitoring plant health is very important for their fast growth. In this busy world, people 
+                usually forget to take proper care of their plants which leads to bad growth and health of 
+                their plants. For ensuring complete development of plants, it is necessary to develop proper 
+                surrounding conditions in which plants grow. The automatic plant monitoring system has 
+                recently attracted tremendous interest due to the potential application in emerging 
+                technology. More importantly, this technique is used to enhance the performance of 
+                existing techniques or to develop and design new techniques for the growth of plants. The 
+                plant monitoring system is helpful for watering the plants and to monitor few factors which 
+                are necessary for the growth of plants.
+              </p>
+              <div></div>
+            </div>
+
+            <div className="block-class block2">
               <div></div>
               <p>
                 There are various factors that affect the substantial growth of the plant. These factors 
@@ -48,23 +52,24 @@ export default function About(){
               </p>
             </div> 
 
-          <div className="block3">
-            <p>
-              It is seen that increased agricultural productivity tend to contribute substantially to an 
-              overall economic development of the country. Thus, it will be rational and appropriate to 
-              place greater emphasis on further development of the agricultural sector. In order to 
-              increase the productivity, farmers these days resort to artificial methods and higher 
-              amounts of pesticides instead of focusing on the main needs of the plant. Norman Borlaug, 
-              the father of Green Revolution has contributed to the extensive increases in agricultural 
-              production. Based on these theorist's ideas, we have come up with a system that focuses on 
-              the main factors which enhances the plant's growth. The factors that are essential for a 
-              plants growth are delivered to the plant as soon as a need is detected. When the normal 
-              range of any factor exceeds, those factors are made unavailable to the plants. The farmer is 
-              immediately notified as soon as any change is detected in the factors or the devices. Since 
-              this system is simple, farmers can understand it and use it with case. This enhances 
-              productivity leading to development of our nation as a whole.
-            </p>
-            <div></div>
+            <div className="block-class block3">
+              <p>
+                It is seen that increased agricultural productivity tend to contribute substantially to an 
+                overall economic development of the country. Thus, it will be rational and appropriate to 
+                place greater emphasis on further development of the agricultural sector. In order to 
+                increase the productivity, farmers these days resort to artificial methods and higher 
+                amounts of pesticides instead of focusing on the main needs of the plant. Norman Borlaug, 
+                the father of Green Revolution has contributed to the extensive increases in agricultural 
+                production. Based on these theorist's ideas, we have come up with a system that focuses on 
+                the main factors which enhances the plant's growth. The factors that are essential for a 
+                plants growth are delivered to the plant as soon as a need is detected. When the normal 
+                range of any factor exceeds, those factors are made unavailable to the plants. The farmer is 
+                immediately notified as soon as any change is detected in the factors or the devices. Since 
+                this system is simple, farmers can understand it and use it with case. This enhances 
+                productivity leading to development of our nation as a whole.
+              </p>
+              <div></div>
+            </div>
           </div>
 
         </div>

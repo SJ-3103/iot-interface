@@ -1,7 +1,7 @@
-.analysis-block{
-    text-align: justify;
+.analysis{
     font-size: large;
     line-height: 150%;
+    text-align: justify;
     height: max-content;
     h2,h3,p{
         padding: 20px 30px 0px 30px;
@@ -10,13 +10,13 @@
 }
 
 .main-image{
-    background-image: url("../res/isaac-smith-6EnTPvPPL6I-unsplash.jpg");
+    background-image: url("../res/images/isaac-smith-6EnTPvPPL6I-unsplash.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 83vh;
     position: relative;
-    margin: 10px 10px 30px 10px;
+    margin: 0px 10px 30px 10px;
     p{
         background-color: rgba(255, 255, 255, 0.863);
         position: absolute;
@@ -38,8 +38,8 @@
 }
 
 #real-life-image{
-    background-image: url("../res/r1.jpg");
-    background-size: cover;
+    background-image: url("../res/images/r1.jpg");
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     height: 30vh;
@@ -48,7 +48,7 @@
 
 
 #working-image{
-    background-image: url("../res/r2.jpg");
+    background-image: url("../res/images/r2.jpg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -56,7 +56,7 @@
 }
 
 #bagging{
-    background-image: url("../res/r3.png");
+    background-image: url("../res/images/r3.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -72,7 +72,7 @@
 }
 
 #steps{
-    background-image: url("../res/r4.jpg");
+    background-image: url("../res/images/r4.jpg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;

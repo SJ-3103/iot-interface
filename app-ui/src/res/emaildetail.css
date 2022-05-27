@@ -1,4 +1,4 @@
-.email-details p {
+.emaildata-wrapper p {
   background-color: whitesmoke;
   padding: 20px;
   margin: 10px 20px;
@@ -7,11 +7,11 @@
   display: flex;
 }
 
-.email-details p b {
+.emaildata-wrapper p b {
   width: 11%;
 }
 
-.email-details p span {
+.emaildata-wrapper p span {
   width: 89%;
 }
 /*# sourceMappingURL=emaildetail.css.map */

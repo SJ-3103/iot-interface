@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Float, Integer, String
 from .database import Base
 
 
@@ -9,8 +9,8 @@ class PlantData(Base):
     date = Column(String, index=True)
     temperature = Column(Integer)
     humidity = Column(Integer)
-    lightval = Column(Integer)
-    moisture = Column(Integer)
+    lightval = Column(Float)
+    moisture = Column(Float)
 
 
 class EmailData(Base):

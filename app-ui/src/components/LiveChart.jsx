@@ -105,7 +105,7 @@ const options = {
       yAxes: {
         title: {
           display: true,
-          text: "Resistance in ohms"
+          text: "Light Intensity in Lumens"
         }
       }
     }
@@ -133,7 +133,7 @@ const options = {
       yAxes: {
         title: {
           display: true,
-          text: "These values has to be converted back"
+          text: "Soil Moisture in %"
         }
       }
     }

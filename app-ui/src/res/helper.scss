@@ -1,15 +1,16 @@
-.App{
-    overflow: hidden;
+.App {
+  overflow: hidden;
+}
+  
+.main-wrapper {
+  display: flex;
+  overflow: hidden;
+  height: 88vh;
 }
 
-.main-wrapper{
-    display: flex;
-    overflow: hidden;
-    height: 83vh;
+.main {
+  width: 90vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
-
-.main{
-    width: 90vw;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
+  

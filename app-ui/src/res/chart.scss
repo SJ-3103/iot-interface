@@ -1,12 +1,13 @@
-.myclass{
+.myclass {
+  display: flex;
+  //   justify-content: center;
+  flex-wrap: wrap;
+  div {
+    width: 70vw;
+    height: 75vh;
+    margin: 6px;
     display: flex;
-    // justify-content: center;
-    flex-wrap: wrap;
-    div{
-        width: 70vw;
-        height: 70vh;
-        margin: 6px;
-        display: flex;
-        align-items: center;
-    }
+    align-items: center;
+  }
 }
+  

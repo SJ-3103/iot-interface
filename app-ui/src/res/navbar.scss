@@ -1,39 +1,43 @@
-.header{
-    a{
-        text-decoration: none;
-        color: black;
+.header {
+    a {
+      text-decoration: none;
+      color: black;
     }
-    nav{
-        padding: 10px;
+    nav {
+      padding: 0px 10px;
+      display: flex;
+      justify-content: space-between;
+      ul {
+        list-style: none;
         display: flex;
-        justify-content: space-between;
-        ul{
-            list-style: none;
-            display: flex;
-            align-items: center;
-            height: inherit;
-            h3{
-                margin: 0px 10px;
-                font-size: larger;
-            }
+        align-items: center;
+        height: inherit;
+        h3 {
+          margin: 0px 10px;
+          font-size: larger;
         }
+      }
     }
-}
-
-#nav-image{
-    background-image: url("./images/plant-image.jpg");   
+  }
+  
+  #nav-image {
+    background-image: url("./images/plant-image.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 92px;
-    height: 92px;
-}
-
-#dcrust-logo{
-    background-image: url("./images/dcrustlogo.png");   
+  }
+  
+  #dcrust-logo {
+    background-image: url("./images/dcrustlogo.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 450px;
-    height: 92px;
-}
+  }
+  
+  #nav-image,
+  #dcrust-logo {
+    height: 12vh;
+  }
+  

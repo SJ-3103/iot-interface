@@ -4,7 +4,7 @@
 }
 
 .header nav {
-  padding: 10px;
+  padding: 0px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,7 +35,6 @@
   background-position: center;
   background-repeat: no-repeat;
   width: 92px;
-  height: 92px;
 }
 
 #dcrust-logo {
@@ -44,6 +43,10 @@
   background-position: center;
   background-repeat: no-repeat;
   width: 450px;
-  height: 92px;
+}
+
+#nav-image,
+#dcrust-logo {
+  height: 12vh;
 }
 /*# sourceMappingURL=navbar.css.map */

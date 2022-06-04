@@ -1,52 +1,63 @@
-.realtime-charts-wrapper{
+.realtime-charts-wrapper {
     display: flex;
-}
-
-.realtime-charts{
-    div{
-        width: 60vw;
-        height: 72vh;
-    }   
-}
-
-.realtime-btn{
+  }
+  
+  .realtime-charts {
+    div {
+      width: 60vw;
+      height: 72vh;
+    }
+  }
+  
+  .realtime-btn {
     height: 70vh;
     width: 30vw;
-}
-
-.getdata-btn{
-    button{
-        padding: 10px 15px;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
-        color: white;
-        font-weight: 700;
-        background-color: blue;
-        border: 1px blue solid;
-    
-        margin: 0 10px;
-        
-        -webkit-box-shadow: 0px 3px 10px -5px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 3px 10px -5px rgba(0,0,0,0.75);
-        box-shadow: 0px 3px 10px -5px rgba(0,0,0,0.75);
-    
-        border-radius: 5px 5px 5px 5px;
-        -moz-border-radius: 5px 5px 5px 5px;
-        -webkit-border-radius: 5px 5px 5px 5px;    
+  }
+  
+  .getdata-btn {
+    button {
+      padding: 10px 15px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+      color: white;
+      font-weight: 700;
+      background-color: blue;
+      border: 1px blue solid;
+  
+      margin: 0 10px;
+  
+      -webkit-box-shadow: 0px 3px 10px -5px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 3px 10px -5px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 3px 10px -5px rgba(0, 0, 0, 0.75);
+  
+      border-radius: 5px 5px 5px 5px;
+      -moz-border-radius: 5px 5px 5px 5px;
+      -webkit-border-radius: 5px 5px 5px 5px;
     }
-    button:hover{
-        cursor: pointer;
-    
-        -webkit-box-shadow: 0px 3px 10px -3px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 3px 10px -3px rgba(0,0,0,0.75);
-        box-shadow: 0px 3px 10px -3px rgba(0,0,0,0.75);
+    button:hover {
+      cursor: pointer;
+  
+      -webkit-box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.75);
     }
-}
-
-.getdata-btn, .livechart-analysis{
+  }
+  
+  .getdata-btn,
+  .livechart-analysis {
     height: 50%;
     display: flex;
-    align-items: center;
     justify-content: center;
-}
+    align-items: center;
+  }
+  
+  .livechart-analysis {
+    flex-direction: column;
+    h3,
+    p,
+    li {
+      padding: 10px;
+    }
+  }
+  

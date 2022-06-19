@@ -22,31 +22,33 @@ def mysendmail(date, temperature, humidity, lightval, moisture):
     path_name = "./iot_rpi/{}".format(file_name)
 
     msg['Subject'] = "Regular Plant Update."
+
     body = "The date is " + date + "\n temperature is " + str(temperature) + "\n humidity is " + str(
         humidity) + "\n moisture is " + str(moisture) + "\n light intensity is " + str(lightval)
 
     msg.attach(MIME_Text(body, 'plain'))
+
     attachment = open(path_name, "rb")
 
     p = MIME_Base('application', 'octet-stream')
     p.set_payload((attachment).read())
 
-    encoders.encode_base64(p)     # encode into base64
+    encoders.encode_base64(p)  # encode into base64
     p.add_header('Content-Disposition', "attachment; filename= %s" % file_name)
 
-    msg.attach(p)     # attach the instance 'p' to instance 'msg'
+    msg.attach(p)  # attach the instance 'p' to instance 'msg'
 
-    s = smtplib.SMTP('smtp.gmail.com', 587)     # creates SMTP session
-    s.starttls()     # start TLS for security
-    s.login(sender, os.getenv("GMAIL_AUTH_KEY"))   # Authentication
+    s = smtplib.SMTP('smtp.gmail.com', 587)  # creates SMTP session
+    s.starttls()  # start TLS for security
+    s.login(sender, os.getenv("GMAIL_AUTH_KEY"))  # Authentication
 
     text = msg.as_string()  # Converts the Multipart msg into a string
 
     try:
-        s.sendmail(sender, reciever, text)   # sending the mail
+        s.sendmail(sender, reciever, text)  # sending the mail
     except Exception as e:
         print(e)
 
     s.quit()
 
-    return [body, path_name]
+    return [msg["Subject"], body, path_name]

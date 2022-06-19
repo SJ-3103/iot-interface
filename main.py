@@ -58,9 +58,8 @@ def get_db():
     finally:
         db.close()
 
+
 # request error exception handling
-
-
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exception: RequestValidationError):
     # print("Error occured "+exception.errors()[0]["msg"]+" : "+exception.errors()[0]["loc"][1])
@@ -150,10 +149,9 @@ async def read_emails(db: Session = Depends(get_db)):
 async def create_mail(db: Session = Depends(get_db)):
     try:
         data = crud.get_last_plant_data(db=db).__dict__
-
         data.__delitem__('_sa_instance_state')
 
-        subject, path_name = mysendmail(
+        new_email_data = mysendmail(
             date=data['date'],
             temperature=data['temperature'],
             humidity=data['humidity'],
@@ -164,9 +162,9 @@ async def create_mail(db: Session = Depends(get_db)):
         email = {
             "sender": "shbhm89300@gmail.com",
             "reciever": "jshubham@gmail.com",
-            "subject": "New Email",
-            "email_text": subject,
-            "email_attachment": path_name
+            "subject": new_email_data[0],
+            "email_text": new_email_data[1],
+            "email_attachment": new_email_data[2]
         }
 
         obj = crud.create_email(db=db, email=email)
@@ -205,6 +203,7 @@ async def create_plant_data(plant: schemas.AddPlant, db: Session = Depends(get_d
         )
 
 
+# websocket in fastApi
 @app.websocket("/ws")
 async def handle_ws(websocket: WebSocket):
     await websocket_endpoint_for_ws(websocket=websocket)

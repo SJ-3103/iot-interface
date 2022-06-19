@@ -1,68 +1,68 @@
-.about{
-    text-align: justify;
-    p{
-        padding: 20px 30px 0px 30px;
-    }
-    font-size: large;
-    line-height: 150%;
+.about {
+  text-align: justify;
+  p {
+    padding: 20px 30px 0px 30px;
+  }
+  font-size: large;
+  line-height: 150%;
 }
 
-.main-block{
-    background-image: url("../res/images/markus-spiske-vrbZVyX2k4I-unsplash.jpg");
-    height: 83vh;
-    margin: 0px 10px 30px 10px;
+.main-block {
+  background-image: url("../res/images/markus-spiske-vrbZVyX2k4I-unsplash.jpg");
+  height: 83vh;
+  margin: 0px 10px 30px 10px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  p {
+    background-color: rgba(20, 172, 53, 0.575);
+    position: absolute;
+    top: 35%;
+    left: 12%;
+    color: white;
+    font-size: 60px;
+    font-weight: 500;
+    padding: 0 15px 20px 15px;
+  }
+}
+
+.block-class {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  p {
+    width: 50%;
+    height: 30%;
+  }
+  div {
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    p{
-        background-color: rgba(20, 172, 53, 0.575);
-        position: absolute;
-        top: 35%;
-        left: 12%;
-        color: white;
-        font-size: 60px;
-        font-weight: 500;
-        padding: 0 15px 20px 15px;
-    }
+  }
 }
 
-.block-class{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    p{
-        width: 50%;
-        height: 30%;
-    }
-    div{
-        background-size: cover;
-    }
+.block1 {
+  div {
+    background-image: url("../res/images/markus-spiske-4PG6wLlVag4-unsplash.jpg");
+    width: 500px;
+    height: 300px;
+  }
 }
 
-.block1{
-    div{
-        background-image: url("../res/images/markus-spiske-4PG6wLlVag4-unsplash.jpg");
-        width: 500px;
-        height: 300px;
-    }
+.block2 {
+  margin-top: 30px;
+  div {
+    background-image: url("../res/images/tanalee-youngblood-CMdQcxsWZE0-unsplash.jpg");
+    width: 400px;
+    height: 580px;
+  }
 }
 
-.block2{
-    margin-top: 30px;
-    div{
-        background-image: url("../res/images/tanalee-youngblood-CMdQcxsWZE0-unsplash.jpg");
-        width: 400px;
-        height: 580px;
-    }
-}
-
-.block3{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    div{
-        background-image: url("../res/images/jose-luis-4cy9p7xZTS4-unsplash.jpg");
-        width: 500px;
-        height: 280px;
-    }
+.block3 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  div {
+    background-image: url("../res/images/jose-luis-4cy9p7xZTS4-unsplash.jpg");
+    width: 500px;
+    height: 280px;
+  }
 }

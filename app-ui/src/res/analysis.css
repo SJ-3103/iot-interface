@@ -4,7 +4,9 @@
   text-align: justify;
 }
 
-.analysis h2, .analysis h3, .analysis p {
+.analysis h2,
+.analysis h3,
+.analysis p {
   padding: 20px 30px 0px 30px;
 }
 

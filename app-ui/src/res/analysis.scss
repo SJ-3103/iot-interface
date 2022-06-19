@@ -1,83 +1,83 @@
-.analysis{
-    font-size: large;
-    line-height: 150%;
-    text-align: justify;
-    h2,h3,p{
-        padding: 20px 30px 0px 30px;
-    }
+.analysis {
+  font-size: large;
+  line-height: 150%;
+  text-align: justify;
+  h2,
+  h3,
+  p {
+    padding: 20px 30px 0px 30px;
+  }
 }
 
-.main-image{
-    background-image: url("../res/images/isaac-smith-6EnTPvPPL6I-unsplash.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 83vh;
-    position: relative;
-    margin: 0px 10px 30px 10px;
-    p{
-        background-color: rgba(255, 255, 255, 0.863);
-        position: absolute;
-        top: 35%;
-        left: 18%;
-        color: rgb(35, 20, 172);
-        font-size: 60px;
-        font-weight: 500;
-        padding: 0px 15px 20px 15px;
-    }
+.main-image {
+  background-image: url("../res/images/isaac-smith-6EnTPvPPL6I-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 83vh;
+  position: relative;
+  margin: 0px 10px 30px 10px;
+  p {
+    background-color: rgba(255, 255, 255, 0.863);
+    position: absolute;
+    top: 35%;
+    left: 18%;
+    color: rgb(35, 20, 172);
+    font-size: 60px;
+    font-weight: 500;
+    padding: 0px 15px 20px 15px;
+  }
 }
 
-
-.real-life{
-    display: flex;
-    div{
-        width: 50%;
-    }
+.real-life {
+  display: flex;
+  div {
+    width: 50%;
+  }
 }
 
-#real-life-image{
-    background-image: url("../res/images/r1.jpg");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 30vh;
-    margin: 40px;
+#real-life-image {
+  background-image: url("../res/images/r1.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 30vh;
+  margin: 40px;
 }
 
-
-#working-image{
-    background-image: url("../res/images/r2.jpg");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 40vh;
+#working-image {
+  background-image: url("../res/images/r2.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40vh;
 }
 
-#bagging{
-    background-image: url("../res/images/r3.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 40vh;
-    margin: 40px;
+#bagging {
+  background-image: url("../res/images/r3.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40vh;
+  margin: 40px;
 }
 
-.steps{
-    display: flex;
-    div{
-        width: 50%;
-    }
+.steps {
+  display: flex;
+  div {
+    width: 50%;
+  }
 }
 
-#steps{
-    background-image: url("../res/images/r4.jpg");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 40vh;
-    margin: 40px;
+#steps {
+  background-image: url("../res/images/r4.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40vh;
+  margin: 40px;
 }
 
-.reasons{
-    margin-bottom: 30px;
+.reasons {
+  margin-bottom: 30px;
 }

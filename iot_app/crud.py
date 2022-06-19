@@ -15,9 +15,8 @@ def create_plant(db: Session, plant: schemas.AddPlant):
     db.refresh(db_plant)
     return db_plant
 
+
 # read all rows of email table
-
-
 def get_all_email_data(db: Session):
     return db.query(models.EmailData).all()
 
@@ -31,5 +30,6 @@ def create_email(db: Session, email):
     return db_email
 
 
+# get last row from plant table
 def get_last_plant_data(db: Session):
     return db.query(models.PlantData).order_by(models.PlantData.id.desc()).first()

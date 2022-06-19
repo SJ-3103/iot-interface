@@ -37,7 +37,7 @@ app = FastAPI()
 app.mount("/assets", StaticFiles(directory="assets/"), name="assets")
 
 origins = [
-    "http://localhost:3000", 
+    "http://localhost:3000",
     "localhost:3000",
 ]
 
@@ -59,12 +59,14 @@ def get_db():
         db.close()
 
 # request error exception handling
+
+
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exception: RequestValidationError):
     # print("Error occured "+exception.errors()[0]["msg"]+" : "+exception.errors()[0]["loc"][1])
     return JSONResponse(
-        status_code = status.HTTP_422_UNPROCESSABLE_ENTITY,
-        content = jsonable_encoder({
+        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+        content=jsonable_encoder({
             "detail": exception.errors()
         }),
     )
@@ -76,7 +78,7 @@ templates = Jinja2Templates(directory="./")
 # for serving react app
 @app.get("/")
 async def serve_react_spa(request: Request):
-	return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("index.html", {"request": request})
 
 
 # api to 'GET' all plant data
@@ -87,22 +89,22 @@ async def read_plant_data(db: Session = Depends(get_db)):
 
         if obj.__len__() == 0:
             return JSONResponse(
-                status_code = 500,
-                content = {
+                status_code=500,
+                content={
                     "msg": "Plant list is Empty!"
                 }
             )
         else:
             plant_data = dict()
-            for i in range(0,obj.__len__()):
+            for i in range(0, obj.__len__()):
                 obj[i].__dict__.pop('_sa_instance_state')
-                plant_data[i] =  obj[i].__dict__
-            
+                plant_data[i] = obj[i].__dict__
+
             return JSONResponse(
-                status_code = 200,
-                content = plant_data
+                status_code=200,
+                content=plant_data
             )
-    
+
     except Exception as error:
         print(error.args)
         raise HTTPException(
@@ -119,22 +121,22 @@ async def read_emails(db: Session = Depends(get_db)):
 
         if obj.__len__() == 0:
             return JSONResponse(
-                status_code = 500,
-                content = {
+                status_code=500,
+                content={
                     "msg": "Email list is Empty!"
                 }
             )
         else:
             email_data = dict()
-            for i in range(0,obj.__len__()):
+            for i in range(0, obj.__len__()):
                 obj[i].__dict__.pop('_sa_instance_state')
-                email_data[i] =  obj[i].__dict__
-            
+                email_data[i] = obj[i].__dict__
+
             return JSONResponse(
-                status_code = 200,
-                content = email_data
+                status_code=200,
+                content=email_data
             )
-    
+
     except Exception as error:
         print(error.args)
         raise HTTPException(
@@ -150,8 +152,8 @@ async def create_mail(db: Session = Depends(get_db)):
         data = crud.get_last_plant_data(db=db).__dict__
 
         data.__delitem__('_sa_instance_state')
-        
-        subject,path_name = mysendmail(
+
+        subject, path_name = mysendmail(
             date=data['date'],
             temperature=data['temperature'],
             humidity=data['humidity'],
@@ -164,11 +166,11 @@ async def create_mail(db: Session = Depends(get_db)):
             "reciever": "jshubham@gmail.com",
             "subject": "New Email",
             "email_text": subject,
-            "email_attachment": path_name 
+            "email_attachment": path_name
         }
 
         obj = crud.create_email(db=db, email=email)
-        
+
         if obj.id:
             return JSONResponse(
                 status_code=200,

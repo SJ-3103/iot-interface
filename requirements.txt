@@ -4,6 +4,7 @@ Adafruit-MCP3008==1.0.2
 Adafruit-PureIO==1.1.9
 anyio==3.5.0
 asgiref==3.5.0
+autopep8==1.6.0
 click==8.1.0
 colorzero==2.0
 fastapi==0.75.0
@@ -14,6 +15,7 @@ httptools==0.4.0
 idna==3.3
 Jinja2==3.1.2
 MarkupSafe==2.1.1
+pycodestyle==2.8.0
 pydantic==1.9.0
 python-dotenv==0.20.0
 PyYAML==6.0
@@ -22,6 +24,7 @@ sniffio==1.2.0
 spidev==3.5
 SQLAlchemy==1.4.35
 starlette==0.17.1
+toml==0.10.2
 typing-extensions==4.1.1
 uvicorn==0.17.6
 uvloop==0.16.0

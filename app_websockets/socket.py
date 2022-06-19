@@ -5,11 +5,11 @@ from fastapi import WebSocket
 # import RPi.GPIO as GPIO
 # import time
 
-# # from gpiozero import MotionSensor 
+# # from gpiozero import MotionSensor
 
 
 # # Setting MCP3008
-# mcpval = mcp.MCP3008(clk=11, cs=8, miso=9, mosi=10) 
+# mcpval = mcp.MCP3008(clk=11, cs=8, miso=9, mosi=10)
 
 # GPIO.setmode(GPIO.BCM)
 # GPIO.setwarnings(False)
@@ -28,13 +28,13 @@ async def websocket_endpoint_for_ws(websocket: WebSocket):
         while True:
             json_data = await websocket.receive_json()
             if json_data["get_data"] == True:
-                
+
                 # blink(4,"red")
 
                 # light_data = light()
                 # soil_moisture_data = soil_moisture()
                 # temp_and_moisture_data = temperature()
-                
+
                 # motion_msg = motion()
 
                 # await websocket.send_json({
@@ -43,20 +43,20 @@ async def websocket_endpoint_for_ws(websocket: WebSocket):
                 #     "soil_moisture_val": soil_moisture_data[0],
                 #     "temperature": temp_and_moisture_data[0],
                 #     "moisture": temp_and_moisture_data[1],
-                    
+
                 #     "lightval_msg": light_data[1],
                 #     "soil_moisture_msg": soil_moisture_data[1],
                 #     "temperature_msg": temp_and_moisture_data[2],
                 #     "moisture_msg": temp_and_moisture_data[3],
-                #     "motion_msg": motion_msg    
+                #     "motion_msg": motion_msg
                 # })
                 await websocket.send_json({
-                    "msg":"Recieving Data",
+                    "msg": "Recieving Data",
                     "lightvalue": 22,
                     "soil_moisture_val": 23,
                     "temperature": 45,
                     "moisture": 67,
-                    
+
                     "lightval_msg": "LIGHT ANALYSIS DATA",
                     "soil_moisture_msg": "SOIL MOISTURE ANALYSIS DATA",
                     "temperature_msg": "TEMPERATURE ANALYSIS DATA",
@@ -111,21 +111,21 @@ async def websocket_endpoint_for_ws(websocket: WebSocket):
 # def blink(pin,color):
 # 	GPIO.output(12, GPIO.LOW)
 # 	GPIO.output(26, GPIO.LOW)
-	
+
 # 	pin = 0
-	
+
 # 	if color == "red":
 # 		pin = 26
-	
+
 # 	elif color == "green":
 # 		pin = 12
-		
+
 # 	for i in range(0, pin):
 # 		GPIO.output(pin, GPIO.HIGH)
 # 		time.sleep(0.1)
 # 		GPIO.output(pin, GPIO.LOW)
 # 		time.sleep(0.1)
-		
+
 
 # def temperature():
 #     humidity, temperature = read_retry(DHT11, 4)

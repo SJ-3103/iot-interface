@@ -16,12 +16,14 @@ def create_plant(db: Session, plant: schemas.AddPlant):
     return db_plant
 
 # read all rows of email table
+
+
 def get_all_email_data(db: Session):
     return db.query(models.EmailData).all()
 
 
 # create email table row
-def create_email(db: Session,email):
+def create_email(db: Session, email):
     db_email = models.EmailData(**email)
     db.add(db_email)
     db.commit()

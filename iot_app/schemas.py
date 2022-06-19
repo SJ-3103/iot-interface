@@ -8,8 +8,8 @@ class Plant(BaseModel):
     date: str
     temperature: int
     humidity: int
-    lightval: int
-    moisture: int
+    lightval: float
+    moisture: float
 
     class Config:
         orm_mode: True
@@ -20,8 +20,8 @@ class AddPlant(BaseModel):
     date: str
     temperature: int
     humidity: int
-    lightval: int
-    moisture: int
+    lightval: float
+    moisture: float
 
 
 # schema for reading

@@ -17,7 +17,7 @@ def get_db():
         db.close()
 
 
-async def send_real_time_data():
+async def send_real_time_data(websocket):
     iot.blink(4, "red")  # blink led 4 times
 
     light_data = iot.light()  # get data from LDR sensor
@@ -56,7 +56,7 @@ async def send_real_time_data():
     })
 
 
-async def send_static_data():
+async def send_static_data(websocket):
     await websocket.send_json({
         "msg": "Recieving Data",
         "lightvalue": 22,

@@ -9,8 +9,8 @@ class PlantData(Base):
     date = Column(String, index=True)
     temperature = Column(Integer)
     humidity = Column(Integer)
-    lightval = Column(Float)
-    moisture = Column(Float)
+    lightval = Column(Integer)
+    moisture = Column(Integer)
 
 
 class EmailData(Base):

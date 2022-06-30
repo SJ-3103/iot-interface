@@ -25,19 +25,23 @@ def light():
     Vout = adc_value*0.0048828125
     Rldr = (10*(5-Vout))/Vout
     lightval = 500.0/Rldr
-    lightval = round(lightval*1000, 0)
+    lightval = int(round(lightval*1000, 0))
 
     lightval_msg = ""
 
-    if lightval in range(0.0001, 50.0):
+    if lightval in range(0, 50):
         lightval_msg = "very low light"
-    elif lightval in range(50.0, 400.0):
+    elif lightval in range(50, 400):
         lightval_msg = "low light"
-    elif lightval in range(400.0, 1000.0):
+    elif lightval in range(400, 1000):
+        lightval_msg = "low light"
+
+    elif lightval in range(6100, 6500):  # hard coded values
         lightval_msg = "light conditions are right"
-    elif lightval in range(10000.0, 25000.0):
+
+    elif lightval in range(10000, 25000):
         lightval_msg = "full daylight but not under direct sun"
-    elif lightval_msg > 25000.0:
+    elif lightval > 25000:
         lightval_msg = "plant is under direct sunlight"
     else:
         lightval_msg = "no light"
@@ -48,15 +52,15 @@ def light():
 def soil_moisture():
     adc_value = mcpval.read_adc(0)  # at channel 0
     moisture_value = 100-(adc_value/10.24)
-    moisture_value = round(moisture_value, 1)
+    moisture_value = int(round(moisture_value, 0))
 
     soil_moisture_msg = ""
 
-    if moisture_value < 26.75:
+    if moisture_value < 27:
         soil_moisture_msg = "Plant needs water"
-    elif moisture_value in range(26.75, 51.17):
+    elif moisture_value in range(27, 52):
         soil_moisture_msg = "Water level is accurate in plant"
-    elif moisture_value > 51.75:
+    elif moisture_value > 52:
         soil_moisture_msg = "To much water in the plant"
 
     return [moisture_value, soil_moisture_msg]
@@ -107,11 +111,14 @@ def temperature():
 
 # needs to be checked
 def motion():
-    value = GPIO.input(11)
-    msg = ""
-    if value == 0:
-        msg = "No intruder/motion"
-    elif value == 1:
-        msg = "Intruder/motion detected"
+    try:
+        value = GPIO.input(17)
+        msg = ""
+        if value == 0:
+            msg = "No intruder/motion"
+        elif value == 1:
+            msg = "Intruder/motion detected"
 
-    return msg
+        return msg
+    except Exception as e:
+        print(e)

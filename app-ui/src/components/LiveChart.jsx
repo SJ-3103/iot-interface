@@ -141,15 +141,15 @@ const options = {
 };
 
 export default function LiveChart() {
-  const [realTimeData, setRealTimeData] = useState({
-    0: {
+  const [realTimeData, setRealTimeData] = useState([
+    {
       date: "0/0/00",
       humidity: "0",
       temperature: "0",
       lightval: "0",
       moisture: "0",
     },
-  });
+  ]);
 
   // chart data states
   const [tempData, setTempData] = useState({
@@ -219,19 +219,19 @@ export default function LiveChart() {
 
         let my_data = JSON.parse(event.data);
 
-        let date = "1/1/1";
+        // let date = "1/1/1";
 
         setRealTimeData((prevState) => {
-          return {
+          return [
             ...prevState,
-            1: {
-              date: date,
+            {
+              date: my_data["time"],
               temperature: my_data["temperature"],
               humidity: my_data["moisture"],
               lightval: my_data["lightvalue"],
               moisture: my_data["soil_moisture_val"],
             },
-          };
+          ];
         });
 
         setTempMsg(my_data["temperature_msg"]);

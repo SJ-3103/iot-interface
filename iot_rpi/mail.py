@@ -23,8 +23,8 @@ def mysendmail(date, temperature, humidity, lightval, moisture):
 
     msg['Subject'] = "Regular Plant Update."
 
-    body = "The date is " + date + "\n temperature is " + str(temperature) + "\n humidity is " + str(
-        humidity) + "\n moisture is " + str(moisture) + "\n light intensity is " + str(lightval)
+    body = "The date is " + date + "\n Temperature is " + str(temperature) + " C\n Humidity is " + str(
+        humidity) + " %\n Moisture is " + str(moisture) + " %\n Light intensity is " + str(lightval) + " lumens"
 
     msg.attach(MIME_Text(body, 'plain'))
 

@@ -1,22 +1,21 @@
-import httpx
-
 import Adafruit_MCP3008 as mcp
 from Adafruit_DHT import read_retry, DHT11
 import RPi.GPIO as GPIO
 from gpiozero import MotionSensor
 
 # Setting MCP3008
+# for LDR and soil moisture sensor
 mcpval = mcp.MCP3008(clk=11, cs=8, miso=9, mosi=10)
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-GPIO.setup(12, GPIO.OUT)
-GPIO.setup(26, GPIO.OUT)
+GPIO.setup(12, GPIO.OUT)    # green LED pin 12
+GPIO.setup(26, GPIO.OUT)  # red LED pin 26
 
 # pir = MotionSensor(17)
 
-GPIO.setup(17, GPIO.IN)
+GPIO.setup(17, GPIO.IN)  # PIR sensor pin 17
 
 
 def light():

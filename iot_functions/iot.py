@@ -1,9 +1,11 @@
+import time
 import Adafruit_MCP3008 as mcp
 from Adafruit_DHT import read_retry, DHT11
 import RPi.GPIO as GPIO
-from gpiozero import MotionSensor
 
-# Setting MCP3008
+# from gpiozero import MotionSensor
+
+# Setting MCP3208
 # for LDR and soil moisture sensor
 mcpval = mcp.MCP3008(clk=11, cs=8, miso=9, mosi=10)
 
@@ -23,19 +25,19 @@ def light():
     Vout = adc_value*0.0048828125
     Rldr = (10*(5-Vout))/Vout
     lightval = 500.0/Rldr
-    lightval = lightval*1000
+    lightval = round(lightval*1000, 0)
 
     lightval_msg = ""
 
-    if lightval in range(0.0001, 50):
+    if lightval in range(0.0001, 50.0):
         lightval_msg = "very low light"
-    elif lightval in range(50, 400):
+    elif lightval in range(50.0, 400.0):
         lightval_msg = "low light"
-    elif lightval in range(400, 1000):
+    elif lightval in range(400.0, 1000.0):
         lightval_msg = "light conditions are right"
-    elif lightval in range(10000, 25000):
+    elif lightval in range(10000.0, 25000.0):
         lightval_msg = "full daylight but not under direct sun"
-    elif lightval_msg > 25000:
+    elif lightval_msg > 25000.0:
         lightval_msg = "plant is under direct sunlight"
     else:
         lightval_msg = "no light"
@@ -46,6 +48,7 @@ def light():
 def soil_moisture():
     adc_value = mcpval.read_adc(0)  # at channel 0
     moisture_value = 100-(adc_value/10.24)
+    moisture_value = round(moisture_value, 1)
 
     soil_moisture_msg = ""
 

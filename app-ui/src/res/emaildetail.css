@@ -5,20 +5,15 @@
 .emaildata-wrapper {
   height: 67vh;
 }
-
 .emaildata-wrapper p {
   background-color: whitesmoke;
   padding: 20px;
   margin: 10px 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .emaildata-wrapper p b {
   width: 11%;
 }
-
 .emaildata-wrapper p span {
   width: 89%;
 }
@@ -26,5 +21,4 @@
 .emaildata-wrapper,
 .emails-details-wrapper {
   overflow: hidden;
-}
-/*# sourceMappingURL=emaildetail.css.map */
+}/*# sourceMappingURL=emaildetail.css.map */

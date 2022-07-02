@@ -3,7 +3,6 @@
   line-height: 150%;
   text-align: justify;
 }
-
 .analysis h2,
 .analysis h3,
 .analysis p {
@@ -19,24 +18,20 @@
   position: relative;
   margin: 0px 10px 30px 10px;
 }
-
 .main-image p {
   background-color: rgba(255, 255, 255, 0.863);
   position: absolute;
   top: 35%;
   left: 18%;
-  color: #2314ac;
+  color: rgb(35, 20, 172);
   font-size: 60px;
   font-weight: 500;
   padding: 0px 15px 20px 15px;
 }
 
 .real-life {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .real-life div {
   width: 50%;
 }
@@ -68,11 +63,8 @@
 }
 
 .steps {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .steps div {
   width: 50%;
 }
@@ -88,5 +80,4 @@
 
 .reasons {
   margin-bottom: 30px;
-}
-/*# sourceMappingURL=analysis.css.map */
+}/*# sourceMappingURL=analysis.css.map */

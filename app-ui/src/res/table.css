@@ -1,13 +1,6 @@
 .table {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -18,7 +11,6 @@
   font-size: medium;
   border: 1px solid black;
 }
-
 .table-data td {
   padding: 10px 3px;
 }
@@ -32,12 +24,10 @@
   background-color: #0b6fa4;
   color: white;
 }
-
 .column-blue td {
   border: 0px solid #0b6fa4;
 }
 
 .column-white {
   border: 1px solid white;
-}
-/*# sourceMappingURL=table.css.map */
+}/*# sourceMappingURL=table.css.map */

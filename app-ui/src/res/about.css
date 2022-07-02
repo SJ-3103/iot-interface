@@ -3,7 +3,6 @@
   font-size: large;
   line-height: 150%;
 }
-
 .about p {
   padding: 20px 30px 0px 30px;
 }
@@ -17,7 +16,6 @@
   background-repeat: no-repeat;
   position: relative;
 }
-
 .main-block p {
   background-color: rgba(20, 172, 53, 0.575);
   position: absolute;
@@ -30,21 +28,14 @@
 }
 
 .block-class {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
   justify-content: space-around;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
-
 .block-class p {
   width: 50%;
   height: 30%;
 }
-
 .block-class div {
   background-size: cover;
 }
@@ -58,7 +49,6 @@
 .block2 {
   margin-top: 30px;
 }
-
 .block2 div {
   background-image: url("../res/images/tanalee-youngblood-CMdQcxsWZE0-unsplash.jpg");
   width: 400px;
@@ -69,10 +59,8 @@
   margin-top: 30px;
   margin-bottom: 30px;
 }
-
 .block3 div {
   background-image: url("../res/images/jose-luis-4cy9p7xZTS4-unsplash.jpg");
   width: 500px;
   height: 280px;
-}
-/*# sourceMappingURL=about.css.map */
+}/*# sourceMappingURL=about.css.map */

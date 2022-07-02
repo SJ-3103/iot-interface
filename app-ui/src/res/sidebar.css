@@ -1,41 +1,26 @@
 .sidebar {
-  background-color: #606660;
+  background-color: rgb(96, 102, 96);
   width: 10vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   height: auto;
   overflow: hidden;
 }
-
 .sidebar ul {
   list-style: none;
   text-align: center;
 }
-
 .sidebar ul li a {
   text-decoration: none;
   color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
-
 .sidebar ul li a svg {
   padding: 6px;
   margin: 10px;
 }
-
 .sidebar ul li a:hover {
   text-decoration: underline;
   background-color: gray;
@@ -44,7 +29,6 @@
 #mail-box {
   position: relative;
 }
-
 #mail-box a span {
   position: absolute;
   top: 0;
@@ -54,5 +38,4 @@
   border-radius: 100%;
   font-weight: 500;
   font-size: small;
-}
-/*# sourceMappingURL=sidebar.css.map */
+}/*# sourceMappingURL=sidebar.css.map */

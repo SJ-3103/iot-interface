@@ -3,16 +3,13 @@
 }
 
 .main-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   overflow: hidden;
-  height: 88vh;
+  height: 85.5vh;
 }
 
 .main {
   width: 90vw;
   overflow-x: hidden;
   overflow-y: scroll;
-}
-/*# sourceMappingURL=helper.css.map */
+}/*# sourceMappingURL=helper.css.map */

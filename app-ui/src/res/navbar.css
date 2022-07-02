@@ -1,29 +1,19 @@
 .header a {
   text-decoration: none;
   color: black;
+  padding: 5px 0px;
 }
-
 .header nav {
   padding: 0px 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
-
 .header nav ul {
   list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   height: inherit;
 }
-
 .header nav ul h3 {
   margin: 0px 10px;
   font-size: larger;
@@ -47,6 +37,5 @@
 
 #nav-image,
 #dcrust-logo {
-  height: 12vh;
-}
-/*# sourceMappingURL=navbar.css.map */
+  height: 13vh;
+}/*# sourceMappingURL=navbar.css.map */

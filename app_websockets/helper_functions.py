@@ -35,12 +35,6 @@ async def send_real_time_data(websocket):
         "moisture": soil_moisture_data[0]
     }
 
-    # code to push data in db on button click
-    try:
-        crud.create_plant(db=Depends(get_db), plant=plant_data)
-    except Exception as e:
-        print(e)
-
     await websocket.send_json({
         "msg": "Recieving Data",
         "time": _time,
@@ -57,8 +51,19 @@ async def send_real_time_data(websocket):
 
 
 async def send_static_data(websocket):
+    _time = time.ctime(time.time())
+
+    plant_data = {
+        'date': _time,
+        'temperature': 45,
+        'humidity': 67,
+        'lightval': 22,
+        'moisture': 23
+    }
+
     await websocket.send_json({
         "msg": "Recieving Data",
+        "time": _time,
         "lightvalue": 22,
         "soil_moisture_val": 23,
         "temperature": 45,

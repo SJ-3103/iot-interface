@@ -49,15 +49,15 @@ export default function Home() {
     const lightval = last_field.lightval;
 
     let value = confirm(
-      "Do you wish to send e-mail to admin?\nDate & Time: " +
+      "\nDo you wish to send e-mail to admin?\n\n1. Date & Time: " +
         date +
-        "\nTemperature: " +
+        "\n2. Temperature: " +
         temperature +
-        " C\nHumidity: " +
+        " C\n3. Humidity: " +
         humidity +
-        " %\nMoisture: " +
+        " %\n4. Moisture: " +
         moisture +
-        " %\nLight Intensity: " +
+        " %\n5. Light Intensity: " +
         lightval +
         " lumens"
     );
@@ -66,8 +66,12 @@ export default function Home() {
       const res = await fetch("/post/emails/", { method: "POST" }).then((res) =>
         res.json()
       );
-      console.log(res);
-      alert("E-mail has been sent to the admin gmail account.");
+
+      if (res.detail === "Internal Server ERROR!") {
+        alert("\nError occured during this event!");
+      } else {
+        alert("\nE-mail has been sent to the admin gmail account.");
+      }
     }
   };
 

@@ -42,6 +42,7 @@ export default function Home() {
   // feature to send emails
   const sendMail = async () => {
     const last_field = plantData[Object.keys(plantData).length - 1];
+
     const date = last_field.date;
     const temperature = last_field.temperature;
     const humidity = last_field.humidity;
@@ -63,9 +64,14 @@ export default function Home() {
     );
 
     if (value) {
-      const res = await fetch("/post/emails/", { method: "POST" }).then((res) =>
-        res.json()
-      );
+      // post request to send plant data through email
+      const res = await fetch("/post/emails/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(last_field),
+      }).then((res) => res.json());
 
       if (res.detail === "Internal Server ERROR!") {
         alert("\nError occured during this event!");

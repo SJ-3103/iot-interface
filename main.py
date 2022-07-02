@@ -138,18 +138,15 @@ async def read_emails(db: Session = Depends(get_db)):
 
 # api to 'POST' email in db
 @app.post("/post/emails/", response_model=schemas.AddEmail)
-async def create_mail(db: Session = Depends(get_db)):
+async def create_mail(email_data: schemas.Plant, db: Session = Depends(get_db)):
     try:
-        data = crud.get_last_plant_data(db=db)
-
         new_email_data = mysendmail(
-            date=data['date'],
-            temperature=data['temperature'],
-            humidity=data['humidity'],
-            lightval=data['lightval'],
-            moisture=data['moisture']
+            date=email_data.date,
+            temperature=email_data.temperature,
+            humidity=email_data.humidity,
+            lightval=email_data.lightval,
+            moisture=email_data.moisture
         )
-
         email = {
             "sender": "shbhm89300@gmail.com",
             "reciever": "jshubham@gmail.com",

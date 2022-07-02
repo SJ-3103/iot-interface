@@ -57,18 +57,3 @@ def create_email(db: Session, email):
     db.commit()
     db.refresh(db_email)
     return db_email
-
-
-# get last row from plant table
-def get_last_plant_data(db: Session):
-    values = db.query(models.PlantData).order_by(
-        models.PlantData.id.desc()).first()
-
-    d = dict()
-    d["id"] = values.id
-    d["date"] = values.date
-    d["temperature"] = values.temperature
-    d["humidity"] = values.humidity
-    d["lightval"] = values.lightval
-    d["moisture"] = values.moisture
-    return d

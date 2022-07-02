@@ -94,11 +94,7 @@ async def read_plant_data(db: Session = Depends(get_db)):
                 }
             )
         else:
-            plant_data = dict()
-            for i in range(0, obj.__len__()):
-                obj[i].__dict__.pop('_sa_instance_state')
-                plant_data[i] = obj[i].__dict__
-
+            plant_data = obj
             return JSONResponse(
                 status_code=200,
                 content=plant_data
@@ -126,11 +122,7 @@ async def read_emails(db: Session = Depends(get_db)):
                 }
             )
         else:
-            email_data = dict()
-            for i in range(0, obj.__len__()):
-                obj[i].__dict__.pop('_sa_instance_state')
-                email_data[i] = obj[i].__dict__
-
+            email_data = obj
             return JSONResponse(
                 status_code=200,
                 content=email_data
@@ -148,8 +140,7 @@ async def read_emails(db: Session = Depends(get_db)):
 @app.post("/post/emails/", response_model=schemas.AddEmail)
 async def create_mail(db: Session = Depends(get_db)):
     try:
-        data = crud.get_last_plant_data(db=db).__dict__
-        data.__delitem__('_sa_instance_state')
+        data = crud.get_last_plant_data(db=db)
 
         new_email_data = mysendmail(
             date=data['date'],

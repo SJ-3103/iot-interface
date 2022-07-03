@@ -209,29 +209,28 @@ export default function LiveChart() {
   const [soil_msg, setSoilMsg] = useState(null);
   const [motion_msg, setMotionMsg] = useState(null);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     // websocket function implementation
     const websocket = () => {
       const ws = new WebSocket("ws://" + window.location.host + "/ws");
 
-      ws.onmessage = (event) => {
-        console.log(event.data);
-
+      ws.onmessage = async (event) => {
         let my_data = JSON.parse(event.data);
 
         // let date = "1/1/1";
 
+        const _plant = {
+          date: my_data["time"],
+          temperature: my_data["temperature"],
+          humidity: my_data["moisture"],
+          lightval: my_data["lightvalue"],
+          moisture: my_data["soil_moisture_val"],
+        };
+
         setRealTimeData((prevState) => {
-          return [
-            ...prevState,
-            {
-              date: my_data["time"],
-              temperature: my_data["temperature"],
-              humidity: my_data["moisture"],
-              lightval: my_data["lightvalue"],
-              moisture: my_data["soil_moisture_val"],
-            },
-          ];
+          return [...prevState, _plant];
         });
 
         setTempMsg(my_data["temperature_msg"]);
@@ -239,14 +238,29 @@ export default function LiveChart() {
         setLightMsg(my_data["lightval_msg"]);
         setSoilMsg(my_data["soil_moisture_msg"]);
         setMotionMsg(my_data["motion_msg"]);
+
+        // http request to post data in plant_data table
+        const res = await fetch("/plant/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(_plant),
+        }).then((res) => res.json());
+
+        if (!res.id) {
+          setIsLoading(true);
+        }
       };
 
       ws.onclose = (event) => {
         console.log("socket is closed from backend");
+        setIsLoading(true);
       };
 
       ws.onerror = (event) => {
         console.log("error in socket");
+        setIsLoading(true);
       };
 
       // set the websocket state value
@@ -357,57 +371,65 @@ export default function LiveChart() {
   return (
     <div className="realtime">
       <h3>Real Time Line Charts</h3>
+      {console.log(isLoading)}
+      {isLoading ? (
+        <div>Loading.....</div>
+      ) : (
+        <div className="realtime-charts-wrapper">
+          <div className="realtime-charts">
+            <div>
+              <Line
+                options={options.temperature_options}
+                data={tempData}
+                id="line"
+              />
+            </div>
+            <div>
+              <Line
+                options={options.humidity_options}
+                data={humidityData}
+                id="line"
+              />
+            </div>
+            <div>
+              <Line
+                options={options.light_options}
+                data={lightData}
+                id="line"
+              />
+            </div>
+            <div>
+              <Line
+                options={options.soil_options}
+                data={soilMoistureData}
+                id="line"
+              />
+            </div>
+          </div>
 
-      <div className="realtime-charts-wrapper">
-        <div className="realtime-charts">
-          <div>
-            <Line
-              options={options.temperature_options}
-              data={tempData}
-              id="line"
-            />
-          </div>
-          <div>
-            <Line
-              options={options.humidity_options}
-              data={humidityData}
-              id="line"
-            />
-          </div>
-          <div>
-            <Line options={options.light_options} data={lightData} id="line" />
-          </div>
-          <div>
-            <Line
-              options={options.soil_options}
-              data={soilMoistureData}
-              id="line"
-            />
+          <div className="realtime-btn">
+            <div className="getdata-btn">
+              <button onClick={getData}>Get Data</button>
+            </div>
+            <div className="livechart-analysis">
+              {temperature_msg ? (
+                <>
+                  <h3>Analysis:</h3>
+                  <ul>
+                    <li>{temperature_msg}</li>
+                    <li>{humidity_msg}</li>
+                    <li>{light_msg}</li>
+                    <li>{soil_msg}</li>
+                    <li>{motion_msg}</li>
+                  </ul>
+                </>
+              ) : (
+                <p>Analysis...</p>
+              )}
+            </div>
           </div>
         </div>
-
-        <div className="realtime-btn">
-          <div className="getdata-btn">
-            <button onClick={getData}>Get Data</button>
-          </div>
-          <div className="livechart-analysis">
-            {temperature_msg ? (
-              <>
-                <h3>Analysis:</h3>
-                <ul>
-                  <li>{temperature_msg}</li>
-                  <li>{humidity_msg}</li>
-                  <li>{light_msg}</li>
-                  <li>{soil_msg}</li>
-                  <li>{motion_msg}</li>
-                </ul>
-              </>
-            ) : (
-              <p>Analysis...</p>
-            )}
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 }

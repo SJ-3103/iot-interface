@@ -87,10 +87,14 @@ export default function Home() {
     setShowTable(false);
   }
 
-  function showCharts() {
+  async function showCharts() {
     setShowCharts(true);
     setShowTable(false);
     setNewChart(false);
+
+    // check this
+    const response_data = await fetch("/plant/").then((res) => res.json());
+    setPlantData(response_data);
   }
 
   function showTable() {

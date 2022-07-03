@@ -55,19 +55,19 @@ async def send_static_data(websocket):
 
     plant_data = {
         'date': _time,
-        'temperature': 45,
-        'humidity': 67,
-        'lightval': 22,
-        'moisture': 23
+        'temperature': 30,
+        'humidity': 69,
+        'lightval': 9990,
+        'moisture': 90
     }
 
     await websocket.send_json({
         "msg": "Recieving Data",
-        "time": _time,
-        "lightvalue": 22,
-        "soil_moisture_val": 23,
-        "temperature": 45,
-        "moisture": 67,
+        "time": plant_data['date'],
+        "lightvalue": plant_data['lightval'],
+        "soil_moisture_val": plant_data['moisture'],
+        "temperature": plant_data['temperature'],
+        "moisture": plant_data['humidity'],
         "lightval_msg": "LIGHT ANALYSIS DATA",
         "soil_moisture_msg": "SOIL MOISTURE ANALYSIS DATA",
         "temperature_msg": "TEMPERATURE ANALYSIS DATA",

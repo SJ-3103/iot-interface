@@ -34,7 +34,7 @@ async def send_real_time_data(websocket):
         "lightval": light_data[0],
         "moisture": soil_moisture_data[0]
     }
-
+    iot.blink(4, "green")
     await websocket.send_json({
         "msg": "Recieving Data",
         "time": _time,

@@ -214,7 +214,7 @@ export default function LiveChart() {
   useEffect(() => {
     // websocket function implementation
     const websocket = () => {
-      const ws = new WebSocket("ws://" + window.location.host + "/ws");
+      const ws = new WebSocket("wss://" + window.location.host + "/ws");
 
       ws.onmessage = async (event) => {
         let my_data = JSON.parse(event.data);
